@@ -1,0 +1,141 @@
+.vertical-center-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .ivu-modal {
+    top: 0;
+  }
+}
+
+// tag
+
+.ivu-tag.ivu-tag--long {
+  display: block;
+  position: relative;
+}
+
+.ivu-tag.ivu-tag--long .ivu-icon-ios-close {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}
+
+//居右弹框
+.ivu-modal--left {
+  .ivu-modal {
+    top: 0;
+    margin: 0;
+    height: 100%;
+  }
+
+  .ivu-modal-wrap {
+    left: auto;
+    overflow: hidden;
+  }
+
+  .ivu-modal-header-inner {
+    text-align: center;
+  }
+
+  .ivu-modal-content {
+    height: 100%;
+    padding-bottom: 50px;
+    border-radius: 0;
+    overflow: auto;
+  }
+
+  .ivu-modal-close {
+    right: auto;
+    left: 8px;
+  }
+
+  .ivu-modal-footer {
+    position: inherit;
+    bottom: auto;
+    left: auto;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    border: 0;
+    padding: 20px;
+  }
+
+  .ease-enter-active {
+    animation-name: easeIn;
+  }
+
+  .ease-leave-active {
+    animation-name: easeOut;
+  }
+}
+
+//图片预览
+
+.ivu-modal--preview {
+  .ivu-modal {
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .ivu-modal-content {
+    height: 100%;
+    position: relative;
+  }
+  .ivu-modal-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .ivu-modal-body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+  }
+  .ivu-modal-footer {
+    display: none;
+  }
+  .ivu-modal-header-inner {
+    text-align: center;
+  }
+  .is-preview {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+@keyframes easeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes easeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.ivu-table-cell {
+  padding: 10px;
+}
+
+//图片预览
+.ivu-upload.is-upload-list--clear .ivu-upload-list {
+  display: none;
+}

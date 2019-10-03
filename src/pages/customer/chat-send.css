@@ -1,0 +1,45 @@
+
+.app-chat-send{
+  display: flex;
+  border: 1px solid #27313e
+}
+
+.app-chat-send .chat-send.is-input{
+  flex:1;
+  color: #fff;
+  height: 60px;
+  border: 1px solid transparent;
+  border-left: none;
+  background-color: transparent;
+  padding: 10px;
+  outline: none; 
+}
+
+.app-chat-send  .chat-btn
+{
+  flex: none;
+  width:120px;
+}
+.app-chat-send  .chat-btn.is-message{
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  cursor: pointer;
+}
+
+.app-chat-send  .chat-btn.is-picture .chat-btn-label{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  cursor: pointer;
+}
+
+.app-chat-send  .chat-btn.is-picture .chat-btn-label img,
+.app-chat-send  .chat-btn.is-message img
+{
+  width: auto;
+  height: 30px;
+}

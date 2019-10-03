@@ -1,0 +1,125 @@
+.chat-body {
+  padding: 10px;
+}
+
+.chat-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.chat-head {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 60px;
+  height: 60px;
+  padding: 5px;
+  background: #fff;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.chat-head-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-item.is-left .chat-head-inner {
+  background: #ed4014;
+}
+
+.chat-item.is-right .chat-head-inner {
+  background: #f0a70a;
+}
+
+.chat-content {
+  border-radius: 4px;
+  padding: 8px 15px;
+  position: relative;
+}
+
+.chat-item.is-left {
+  justify-content: flex-start;
+}
+
+.chat-item.is-right {
+  justify-content: flex-end;
+}
+
+.chat-item.is-left .chat-content {
+  margin-left: 20px;
+  margin-right: 80px;
+  background-color: #ed4014
+}
+
+.chat-item.is-right .chat-content {
+  margin-left: 80px;
+  margin-right: 20px;
+  background-color: #f0a70a
+}
+
+.chat-time {
+  margin-top: 5px;
+  margin-left: 20px;
+  color: #ddd;
+  font-size: 12px;
+}
+
+.chat-name {
+  font-size: 12px;
+  color: #fff;
+}
+
+.chat-name-detail {
+  margin-bottom: 5px;
+  margin-left: 20px;
+  color: #ddd;
+  font-size: 12px;
+}
+
+.chat-item.is-right .chat-name-detail {
+  margin-right: 20px;
+  text-align: right;
+}
+
+.chat-item.is-right .chat-time {
+  margin-right: 20px;
+  text-align: right;
+}
+
+.chat-point {
+  position: absolute;
+  top: 12px;
+  width: 0;
+  height: 0;
+}
+
+.chat-item.is-left .chat-point {
+  left: -12px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #ed4014 #ed4014 transparent transparent;
+  /*透明 灰 透明 透明 */
+}
+
+.chat-item.is-right .chat-point {
+  right: -12px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #f0a70a transparent transparent #f0a70a;
+  /*透明 灰 透明 透明 */
+}
+
+.chat-more {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.chat-more>span {
+  color: #f0a70a;
+  cursor: pointer;
+}

@@ -1,0 +1,429 @@
+@import "./theme.less";
+
+/**
+* 文本
+*/
+//   // color          : #000;
+//   // font-size      : 100%;
+//   // font-family    : inherit;
+//   // font-style     : normal;
+//   // font-variant   : normal;
+//   // font-weight    : normal;
+//   // direction      : ltr;
+//   // letter-spacing : normal;
+//   // line-height    : normal;
+//   // text-align     : left;
+//   // text-decoration: none;
+//   // text-indent    : 0;
+//   // text-transform : none;
+//   // word-spacing   : normal;
+//   // word-break     : normal;
+//   // word-wrap      : normal;
+
+/**
+* 文本的字体颜色
+*/
+.vi-color--primary {
+  color: @color-primary;
+}
+
+.vi-color--warning {
+  color: @color-warning;
+}
+
+.vi-color--danger {
+  color: @color-danger;
+}
+
+.vi-color--success {
+  color: @color-success;
+}
+
+.vi-color--dark {
+  color: @color-dark;
+}
+
+.vi-color--light {
+  color: @color-light;
+}
+
+.vi-color--gray {
+  color: @color-gray;
+}
+
+.vi-color--black {
+  color: @color-black;
+}
+
+.vi-color--white {
+  color: @color-white;
+}
+
+.vi-color--inherit {
+  color: inherit;
+}
+
+/**
+* 文本的字体大小
+*/
+.vi-font-size--none {
+  font-size: 0;
+}
+
+.vi-font-size--smaller {
+  font-size: @text-size-smaller;
+}
+
+.vi-font-size--small {
+  font-size: @text-size-small;
+}
+
+.vi-font-size--medium {
+  font-size: @text-size-medium;
+}
+
+.vi-font-size--large {
+  font-size: @text-size-large;
+}
+
+.vi-font-size--larger {
+  font-size: @text-size-larger;
+}
+
+.vi-font-size--inherit {
+  font-size: inherit;
+}
+
+/**
+* 文本的样式
+*/
+.vi-font-style--italic {
+  font-style: italic;
+}
+
+.vi-font-style--oblique {
+  font-style: oblique;
+}
+
+.vi-font-style--inherit {
+  font-style: inherit;
+}
+
+/**
+* 文本的字体粗细
+*/
+.vi-font-weight--100 {
+  font-weight: 100;
+}
+
+.vi-font-weight--200 {
+  font-weight: 200;
+}
+
+.vi-font-weight--300 {
+  font-weight: 300;
+}
+
+.vi-font-weight--400 {
+  font-weight: 400;
+}
+
+.vi-font-weight--500 {
+  font-weight: 500;
+}
+
+.vi-font-weight--600 {
+  font-weight: 600;
+}
+
+.vi-font-weight--700 {
+  font-weight: 700;
+}
+
+.vi-font-weight--800 {
+  font-weight: 800;
+}
+
+.vi-font-weight--900 {
+  font-weight: 900;
+}
+
+.vi-font-weight--bold {
+  font-weight: bold;
+}
+
+.vi-font-weight--bolder {
+  font-weight: bolder;
+}
+
+.vi-font-weight--lighter {
+  font-weight: lighter;
+}
+
+.vi-font-weight--normal {
+  font-weight: normal;
+}
+
+.vi-font-weight--inherit {
+  font-weight: inherit;
+}
+
+/**
+* 规定文本的方向 / 书写方向
+*/
+.vi-direction--ltr {
+  direction: ltr;
+}
+
+.vi-direction--rtl {
+  direction: rtl;
+}
+
+.vi-direction--inherit {
+  direction: inherit;
+}
+
+/**
+* 文本字符间距
+*/
+.vi-letter-spacing--smaller {
+  letter-spacing: @text-letter-spacing-smaller;
+}
+
+.vi-letter-spacing--small {
+  letter-spacing: @text-letter-spacing-small;
+}
+
+.vi-letter-spacing--medium {
+  letter-spacing: @text-letter-spacing-medium;
+}
+
+.vi-letter-spacing--large {
+  letter-spacing: @text-letter-spacing-large;
+}
+
+.vi-letter-spacing--larger {
+  letter-spacing: @text-letter-spacing-larger;
+}
+
+.vi-letter-spacing--inherit {
+  letter-spacing: inherit;
+}
+
+.vi-letter-spacing--normal {
+  letter-spacing: normal;
+}
+
+/**
+* 文本的行高
+* 需要文本在块级元素中才起作用的
+* 文本是行内元素则有默认的行高，不在自身元素起作用，而所占空间是该值大小
+*/
+
+.vi-line-height--smaller {
+  line-height: @text-height-smaller;
+}
+
+.vi-line-height--small {
+  line-height: @text-height-small;
+}
+
+.vi-line-height--medium {
+  line-height: @text-height-medium;
+}
+
+.vi-line-height--large {
+  line-height: @text-height-large;
+}
+
+.vi-line-height--larger {
+  line-height: @text-height-larger;
+}
+
+.vi-line-height--inherit {
+  line-height: inherit;
+}
+
+.vi-line-height--normal {
+  line-height: normal;
+}
+
+/**
+* 文本的字体对齐方式
+*/
+.vi-text-align--left {
+  text-align: left;
+}
+
+.vi-text-align--center {
+  text-align: center;
+}
+
+.vi-text-align--right {
+  text-align: right;
+}
+
+.vi-text-align--justify {
+  text-align: justify;
+}
+
+.vi-text-align--inherit {
+  text-align: inherit;
+}
+
+/**
+* 文本decoration,规定添加到文本的装饰效果
+*/
+.vi-text-decoration--none {
+  text-decoration: none;
+}
+
+.vi-text-decoration--underline {
+  text-decoration: underline;
+}
+
+.vi-text-decoration--overline {
+  text-decoration: overline;
+}
+
+.vi-text-decoration--line-through {
+  text-decoration: line-through;
+}
+
+.vi-text-decoration--blink {
+  text-decoration: blink;
+}
+
+.vi-text-decoration--inherit {
+  text-decoration: inherit;
+}
+
+/**
+* 文本首行的缩进
+*/
+.vi-text-indent--none {
+  text-indent: 0;
+}
+
+.vi-text-indent--smaller {
+  text-indent: @text-indent-smaller;
+}
+
+.vi-text-indent--small {
+  text-indent: @text-indent-small;
+}
+
+.vi-text-indent--medium {
+  text-indent: @text-indent-medium;
+}
+
+.vi-text-indent--large {
+  text-indent: @text-indent-large;
+}
+
+.vi-text-indent--larger {
+  text-indent: @text-indent-larger;
+}
+
+.vi-text-indent--inherit {
+  text-indent: inherit;
+}
+
+/**
+* 文本 大小写的转换
+*/
+.vi-text-transform--none {
+  text-transform: none;
+}
+
+.vi-text-transform--capitalize {
+  text-transform: capitalize;
+}
+
+.vi-text-transform--lowercase {
+  text-transform: lowercase;
+}
+
+.vi-text-transform--uppercase {
+  text-transform: uppercase;
+}
+
+.vi-text-transform--inherit {
+  text-transform: inherit;
+}
+
+/**
+* 文本单词之间的间距
+*/
+.vi-word-spacing--normal {
+  word-spacing: normal;
+}
+
+.vi-word-spacing--smaller {
+  word-spacing: @text-word-spacing-smaller;
+}
+
+.vi-word-spacing--small {
+  word-spacing: @text-word-spacing-small;
+}
+
+.vi-word-spacing--medium {
+  word-spacing: @text-word-spacing-medium;
+}
+
+.vi-word-spacing--large {
+  word-spacing: @text-word-spacing-large;
+}
+
+.vi-word-spacing--larger {
+  word-spacing: @text-word-spacing-larger;
+}
+
+.vi-word-spacing--inherit {
+  word-spacing: inherit;
+}
+
+/**
+* 文本 恰当的断字点进行换行
+*/
+
+.vi-word-break--normal {
+  word-break: normal;
+}
+
+.vi-word-break--break-all {
+  word-break: break-all;
+}
+
+.vi-word-break--keep-all {
+  word-break: keep-all;
+}
+
+/**
+* 文本 允许长单词换行到下一行
+*/
+.vi-word-wrap--normal {
+  word-wrap: normal;
+}
+
+.vi-word-wrap--break {
+  word-wrap: break-word;
+}
+
+/**
+* 文本的截取
+*/
+
+.vi-text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vi-text-clamp {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-emphasis: none;
+}

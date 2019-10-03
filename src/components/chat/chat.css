@@ -1,0 +1,42 @@
+.app-chat-btn {
+  position: fixed;
+  z-index: 99;
+  right: 20px;
+  bottom: 20px;
+  height: 60px;
+  width: 60px;
+  background-color: #f90;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer
+}
+
+.app-chat-btn img {
+  width: 35px;
+  height: 35px
+}
+
+.app-chat-btn .app-tag {
+  position: relative
+}
+
+.app-chat-btn .app-tag--wrap {
+  position: absolute;
+  right: 0;
+  transform: translateX(50%);
+  top: -8px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 12px;
+  border-radius: 14px;
+  padding: 0 2px;
+  min-width: 14px;
+  background-color: #f30;
+  border: 1px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} 
