@@ -2,49 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9692b47a-c8b5-4993-bfb1-767f61636db5" name="Default" comment="添加转账信息">
-      <change afterPath="$PROJECT_DIR$/src/assets/css/main/border-radius.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/main/border.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/main/box-shadow.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/border-radius.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/border.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/box-shadow.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/button.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/flex.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/input.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/layout.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/margin.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/padding.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/position.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/text.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/store-basis/theme.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/uc/team.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/css/app.0eea85b0fe523ff8aeff28941998d47d.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/13.91872ad63612fbadd8f3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/14.4596c60059c3d73fc6d7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/15.2b4f7bb7bcea65eae843.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/16.2eb76c6ec455bda0da54.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/17.ad44f53593ebe01b9b0c.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/21.64a50f64e947054ad5ca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/6.7023cb622ca1a6842c1f.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/8.61368b2c0dd817a538d7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/9.a6f9460b005f9894ee43.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/assets/js/app.c8fad2619bcdadc4f8d0.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/page.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/page.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/rewrite.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/rewrite.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/theme.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/theme.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/uc/Account.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/uc/Account.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/routes2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/otc/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/otc/Chat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/uc/MemberCenter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/uc/MemberCenter.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/assets/js/1.a09974de5b9f830640d5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/assets/js/20.2a48477a661aa197d2c4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/assets/js/21.3832f1d44f013427cee2.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/assets/js/20.f4f8e40a26fec389fcef.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/assets/js/34.4741f6ddc005ea09baf3.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/assets/js/35.fc1f0e01aee3c25e8ddf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/assets/js/35.dc23ba31acce084139c1.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/assets/js/36.2828cf0278d369ea8f00.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/assets/js/vendor.b18929a5e44f5af59a89.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/assets/js/vendor.ce19f2ba14bf9f65e398.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/uc/team.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/uc/team.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/assets/js/32.54cee8a1232e8a04352e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/assets/js/manifest.2bb75a4647425bec76de.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/otc/Chat.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1379">
-              <caret line="1082" column="40" selection-start-line="1082" selection-start-column="32" selection-end-line="1082" selection-end-column="40" />
+            <state relative-caret-position="-631">
+              <caret line="1071" column="48" selection-start-line="1071" selection-start-column="48" selection-end-line="1071" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -120,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/uc/team.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1328">
-              <caret line="295" column="35" selection-start-line="295" selection-start-column="35" selection-end-line="295" selection-end-column="35" />
+            <state relative-caret-position="263">
+              <caret line="308" column="40" lean-forward="true" selection-start-line="308" selection-start-column="40" selection-end-line="308" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -142,7 +103,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/otc/Chatline.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5344">
+            <state relative-caret-position="1364">
               <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
             </state>
           </provider>
@@ -260,7 +221,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -275,6 +236,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,82 +253,7 @@
               <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="store-basis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="otc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="uc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="exchange" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="otc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
@@ -374,18 +261,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="uc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="request" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -500,16 +380,17 @@
       <workItem from="1569896679559" duration="17468000" />
       <workItem from="1569919952640" duration="3686000" />
       <workItem from="1570068702791" duration="3546000" />
+      <workItem from="1570154890637" duration="1467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128639000" />
+    <option name="totallyTimeSpent" value="130106000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="2536" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22143865" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1406744" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -523,7 +404,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32986256" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.18533944" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.16612378" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -804,22 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-148">
           <caret line="1182" column="22" selection-start-line="1182" selection-start-column="22" selection-end-line="1182" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#Modal#3;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#Modal#4;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#template#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#template#1;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#template#2;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#template#3;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#template#4;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#template#5;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#template#7;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#template#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,6 +732,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/otc/Chatline.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1364">
+          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/uc/MemberCenter.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4681">
@@ -874,10 +746,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/otc/Chat.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-631">
+          <caret line="1071" column="48" selection-start-line="1071" selection-start-column="48" selection-end-line="1071" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/uc/team.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1328">
-          <caret line="295" column="35" selection-start-line="295" selection-start-column="35" selection-end-line="295" selection-end-column="35" />
+        <state relative-caret-position="263">
+          <caret line="308" column="40" lean-forward="true" selection-start-line="308" selection-start-column="40" selection-end-line="308" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -888,20 +767,6 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#2;n#div#0;n#template#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/otc/Chatline.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5344">
-          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/otc/Chat.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1379">
-          <caret line="1082" column="40" selection-start-line="1082" selection-start-column="32" selection-end-line="1082" selection-end-column="40" />
         </state>
       </provider>
     </entry>

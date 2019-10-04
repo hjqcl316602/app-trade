@@ -266,17 +266,17 @@ export default {
                   </i-col>
                   <i-col span="3">
                     <div class="vi-padding">
-                      <span>{{ item.totayAmount || "--" }}</span>
+                      <span>{{ item.totayAmount || 0 }}</span>
                     </div>
                   </i-col>
                   <i-col span="3">
                     <div class="vi-padding">
-                      <span>{{ item.totalAmount || "--" }}</span>
+                      <span>{{ item.totalAmount || 0 }}</span>
                     </div>
                   </i-col>
                   <i-col span="5">
                     <div class="vi-padding">
-                      <span>{{ item.agencyPercent || "--" }}</span>
+                      <span>{{ item.agencyPercent || 0 }}</span>
                     </div>
                   </i-col>
                   <i-col span="7">
@@ -303,7 +303,7 @@ export default {
                       </div>
                       <div v-else>
                         <span class="vi-margin-right">
-                          {{ item.bonusPercent || "--" }}%
+                          {{ item.bonusPercent || 0 }}%
                         </span>
                         <i-button
                           type="default"
