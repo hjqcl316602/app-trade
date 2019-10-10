@@ -308,8 +308,8 @@ export default {
 
                 let self = this;
                 setTimeout(() => {
-                  self.$router.push("/chat?tradeId=" + resp.data);
-                }, 2000);
+                  self.$router.push("/uc/order/recharge-withdraw");
+                }, 1000);
               } else {
                 this.$Message.error(resp.message);
               }

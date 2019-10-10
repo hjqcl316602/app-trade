@@ -266,12 +266,12 @@
                     src: audio,
                     timer: null,
                     duration: 3 * 1000,
-                    playTime: 5,
+                    playTime: 3,
                     close: close ? close === "close" : true
                 },
                 order: {
                     timer: null,
-                    duration: 30 * 1000,
+                    duration: 15 * 1000,
                     count: 0
                 },
                 chat: {
@@ -389,26 +389,13 @@
                             let count = buy + sell + appeal;
                             let proper = ["充值", "提现", "申诉"];
 
-                            let message = "";
-
-                            if (buy > 0) {
-                                message += "提现订单条数:" + buy + "条<br>";
-                            }
-                            if (sell > 0) {
-                                message += "充值订单条数:" + sell + "条<br>";
-                            }
-                            if (appeal > 0) {
-                                message += "申诉订单条数:" + appeal + "条";
-                            }
-                            if (message) {
+                            if (count > 0 ) {
                                 this.$Notice.open({
-                                    title: "待处理订单",
-                                    desc: message,
+                                    title: "未完成订单",
+                                    desc: "未完成订单数量："+count + '条',
                                     duration: this.order.duration / 1000 / 2
                                 });
-                            }
-                            if (count > 0 && this.audio.close) {
-                                this.setTimerAudio();
+                                this.audio.close && this.setTimerAudio();
                             }
                         } else {
                             let count = localStorage.getItem("app/order/new/log/err");

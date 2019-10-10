@@ -129,18 +129,22 @@
                   </h6>
                   <div v-show="statusBtn == 1 && tradeType == 0">
                     <Button type="warning" @click="modal1 = true"
-                      >付款完成
+                      >
+                      付款完成
                     </Button>
                     <Button @click="modal3 = true" type="error"
-                      >取消交易
+                      >
+                      取消交易
                     </Button>
                   </div>
                   <div v-show="statusBtn == 2 && tradeType == 0">
                     <Button type="warning" @click="beforeAppear"
-                      >订单申诉
+                      >
+                      订单申诉
                     </Button>
                     <Button @click="modal3 = true" type="error"
-                      >取消交易
+                      >
+                      取消交易
                     </Button>
                   </div>
                   <div v-show="statusBtn == 2 && tradeType == 1">
@@ -202,9 +206,11 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
-                          msg.channelOrderId
-                        }}</span>
+                        <span class="vui-font-weight--bold">
+                          {{
+                          msg.channelOrderId || "--"
+                        }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -218,9 +224,11 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
-                          msg.subMemId
-                        }}</span>
+                        <span class="vui-font-weight--bold">
+                          {{
+                          msg.subMemId || "--"
+                        }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -335,9 +343,11 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
+                        <span class="vui-font-weight--bold">
+                          {{
                           msg.commission
-                        }}</span>
+                        }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -351,9 +361,11 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
+                        <span class="vui-font-weight--bold">
+                          {{
                           msg.payMode
-                        }}</span>
+                        }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -386,9 +398,11 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
+                        <span class="vui-font-weight--bold">
+                          {{
                           msg.payRemark
-                        }}</span>
+                        }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -402,9 +416,11 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
+                        <span class="vui-font-weight--bold">
+                          {{
                           msg.transferNumber
-                        }}</span>
+                        }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -418,9 +434,11 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
+                        <span class="vui-font-weight--bold">
+                          {{
                           msg.transferTime
-                        }}</span>
+                        }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -432,7 +450,8 @@
                     <i-col span="6" class="order-info" v-if="payStatus.bank">
                       <i class="icons bankfor"></i>
                       <span
-                        >{{ bankInfo != null ? bankInfo.bankRealName : "" }}
+                        >
+                        {{ bankInfo != null ? bankInfo.bankRealName : "" }}
                       </span>
                       <p style="line-height: 30px">
                         {{ bankInfo && bankInfo.cardNo }}

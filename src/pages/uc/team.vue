@@ -10,7 +10,7 @@ export default {
         value: 0
       },
       message: {},
-      follower: []
+        follower: []
     };
   },
   props: {},
@@ -145,7 +145,7 @@ export default {
       <div class="app-border app-border-bottom">
         <div class="vi-flex vi-padding " style="line-height: 40px">
           <div
-            style="width: 142px"
+            style="width: 160px"
             class="app-border app-border-right app-border--dashed vi-padding-left--large vi-padding-right--large"
           >
             <span>我的推荐人</span>
@@ -178,7 +178,7 @@ export default {
       <div class="app-border app-border-bottom">
         <div class="vi-flex vi-padding " style="line-height: 40px">
           <div
-            style="width: 142px"
+            style="width: 160px"
             class="app-border app-border-right app-border--dashed vi-padding-left--large vi-padding-right--large"
           >
             <span>我的推荐码</span>
@@ -193,7 +193,7 @@ export default {
       <div class="app-border app-border-bottom">
         <div class="vi-flex vi-padding " style="line-height: 40px">
           <div
-            style="width: 142px"
+            style="width: 160px"
             class="app-border app-border-right app-border--dashed vi-padding-left--large vi-padding-right--large"
           >
             <span>我的分成值</span>
@@ -205,10 +205,40 @@ export default {
           </div>
         </div>
       </div>
+      <div class="app-border app-border-bottom">
+        <div class="vi-flex vi-padding " style="line-height: 40px">
+          <div
+                  style="width: 160px"
+                  class="app-border app-border-right app-border--dashed vi-padding-left--large vi-padding-right--large"
+          >
+            <span>我的余额</span>
+          </div>
+          <div
+                  class="vi-flex--1 vi-padding-left--large vi-padding-right--large"
+          >
+            <span>{{ message.myPlatCoin || 0 }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="app-border app-border-bottom">
+        <div class="vi-flex vi-padding " style="line-height: 40px">
+          <div
+                  style="width: 160px"
+                  class="app-border app-border-right app-border--dashed vi-padding-left--large vi-padding-right--large"
+          >
+            <span>团队余额</span>
+          </div>
+          <div
+                  class="vi-flex--1 vi-padding-left--large vi-padding-right--large"
+          >
+            <span>{{ message.totalPlatCoin || 0 }}</span>
+          </div>
+        </div>
+      </div>
       <div class="">
         <div class="vi-flex vi-padding " style="line-height: 40px">
           <div
-            style="width: 142px"
+            style="width: 160px"
             class="app-border app-border-right app-border--dashed vi-padding-left--large vi-padding-right--large"
           >
             <span>我的团队</span>
@@ -229,6 +259,16 @@ export default {
                   </i-col>
                   <i-col span="3">
                     <div class="vi-padding">
+                      <span class="vi-font-weight--bold">余额</span>
+                    </div>
+                  </i-col>
+                  <i-col span="3">
+                    <div class="vi-padding">
+                      <span class="vi-font-weight--bold">团队余额</span>
+                    </div>
+                  </i-col>
+                  <i-col span="3">
+                    <div class="vi-padding">
                       <span class="vi-font-weight--bold">今日收款</span>
                     </div>
                   </i-col>
@@ -237,12 +277,12 @@ export default {
                       <span class="vi-font-weight--bold">全部收款</span>
                     </div>
                   </i-col>
-                  <i-col span="5">
+                  <i-col span="3">
                     <div class="vi-padding">
                       <span class="vi-font-weight--bold">分成值</span>
                     </div>
                   </i-col>
-                  <i-col span="7">
+                  <i-col span="3">
                     <div class="vi-padding">
                       <span class="vi-font-weight--bold">分成比例</span>
                     </div>
@@ -266,6 +306,16 @@ export default {
                   </i-col>
                   <i-col span="3">
                     <div class="vi-padding">
+                      <span>{{ item.myPlatCoin }}</span>
+                    </div>
+                  </i-col>
+                  <i-col span="3">
+                    <div class="vi-padding">
+                      <span>{{ item.myTeamPlatCoin }}</span>
+                    </div>
+                  </i-col>
+                  <i-col span="3">
+                    <div class="vi-padding">
                       <span>{{ item.totayAmount || 0 }}</span>
                     </div>
                   </i-col>
@@ -274,12 +324,12 @@ export default {
                       <span>{{ item.totalAmount || 0 }}</span>
                     </div>
                   </i-col>
-                  <i-col span="5">
+                  <i-col span="3">
                     <div class="vi-padding">
                       <span>{{ item.agencyPercent || 0 }}</span>
                     </div>
                   </i-col>
-                  <i-col span="7">
+                  <i-col span="3">
                     <div class="vi-padding">
                       <div v-if="item.handler === 1">
                         <Input-number

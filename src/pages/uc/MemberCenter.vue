@@ -190,20 +190,20 @@
             <MenuItem name="4-2">
               <router-link to="/uc/order">我的订单</router-link>
             </MenuItem>
-            <MenuItem name="4-3">
-              <router-link to="/uc/order/withdraw">卖出订单</router-link>
-            </MenuItem>
-            <MenuItem name="4-4">
-              <router-link to="/uc/order/recharge">买入订单</router-link>
-            </MenuItem>
+            <!--<MenuItem name="4-3">-->
+              <!--<router-link to="/uc/order/withdraw">卖出订单</router-link>-->
+            <!--</MenuItem>-->
+            <!--<MenuItem name="4-4">-->
+              <!--<router-link to="/uc/order/recharge">买入订单</router-link>-->
+            <!--</MenuItem>-->
             <MenuItem name="4-5">
               <router-link to="/uc/order/recharge-withdraw"
-                >买入/卖出订单</router-link
+                >未完成订单</router-link
               >
             </MenuItem>
-            <MenuItem name="4-6">
-              <router-link to="/uc/order/custom">申诉订单</router-link>
-            </MenuItem>
+            <!--<MenuItem name="4-6">-->
+              <!--<router-link to="/uc/order/custom">申诉订单</router-link>-->
+            <!--</MenuItem>-->
           </Submenu>
           <Submenu name="5">
             <template slot="title">

@@ -73,12 +73,22 @@ export default {
         }
       });
       columns.push({
+        title: "订单类型",
+        key: "type",
+        align: "center",
+        render: (h, { row }) => {
+          if (row.orderType === "customer") {
+            return h("p", { style: { color: "red",'font-weight':800 } }, "申诉订单");
+          }
+        }
+      });
+      columns.push({
         title: "交易类型",
         key: "type",
         align: "center",
         render: (h, params) => {
           let text = "";
-          if (params.row.type == 0) {
+          if (params.row.type === 0) {
             text = "买入";
           } else {
             text = "卖出";
@@ -96,24 +106,26 @@ export default {
       columns.push({
         title: "交易对象",
         key: "name",
-        // width: 80,
         ellipsis: "true",
         align: "center",
-        render: function(h, params) {
-          return h("p", [
-            h(
-              "a",
-              {
-                on: {
-                  click: function() {
-                    self.$router.push("/checkuser?id=" + params.row.name);
-                  }
-                },
-                class: "vc-text--link"
-              },
-              params.row.name
-            )
-          ]);
+        render: function(h, { row }) {
+          if (row.orderType !== "customer") {
+            return h("p", row.name);
+          }
+          // return h("p", [
+          //   h(
+          //     "a",
+          //     {
+          //       on: {
+          //         click: function() {
+          //           self.$router.push("/checkuser?id=" + params.row.name);
+          //         }
+          //       },
+          //       class: "vc-text--link"
+          //     },
+          //     params.row.name
+          //   )
+          // ]);
         }
       });
       columns.push({
@@ -143,52 +155,93 @@ export default {
         key: "done",
         align: "center",
         render(h, params, index) {
-          if (params.row && params.row.type == 1) {
+          let row = params.row;
+          if (row == null) return false;
+          // 卖出方，需要放币方
+
+          if (row.orderType === "customer") {
             return h("p", [
               h(
                 "Button",
                 {
                   on: {
                     click: function() {
-                      self.withdraw.modal = true;
-                      self.withdraw.sn = params.row && params.row.orderSn;
+                      localStorage.setItem(
+                        "app/order/custom/message",
+                        JSON.stringify(params.row)
+                      );
+                      self.$router.push(
+                        "/chat?tradeId=" + params.row.orderSn + "&type=custom"
+                      );
                     }
                   },
                   props: {
-                    type: "warning"
+                    type: "error"
                   },
                   style: {
                     marginRight: "8px",
                     marginBottom: "8px"
                   }
                 },
-                "确认放币"
+                "去处理"
               )
             ]);
-          } else {
-            return h("p", [
-              h(
-                "Button",
-                {
-                  on: {
-                    click: function() {
-                      let sn = params.row && params.row.orderSn;
-                      self.recharge.money = params.row && params.row.money;
-                      self.recharge.sn = sn;
-                      self.getOrderDatail(sn);
+          }
+          if (row.type === 1) {
+            if (row.status === 1) {
+              return h("p", { style: { color: "red" } }, "等待付款");
+            } else if (row.status === 2) {
+              return h("p", [
+                h(
+                  "Button",
+                  {
+                    on: {
+                      click: function() {
+                        self.withdraw.modal = true;
+                        self.withdraw.sn = params.row && params.row.orderSn;
+                      }
+                    },
+                    props: {
+                      type: "warning"
+                    },
+                    style: {
+                      marginRight: "8px",
+                      marginBottom: "8px"
                     }
                   },
-                  props: {
-                    type: "success"
+                  "确认放币"
+                )
+              ]);
+            }
+          } else if (row.type === 0) {
+            // 买入方，需要付款方
+            if (row.status === 1) {
+              return h("p", [
+                h(
+                  "Button",
+                  {
+                    on: {
+                      click: function() {
+                        let sn = params.row && params.row.orderSn;
+                        self.recharge.money = params.row && params.row.money;
+                        self.recharge.sn = sn;
+                        self.getOrderDatail(sn);
+                      }
+                    },
+                    props: {
+                      type: "success"
+                    },
+                    style: {
+                      marginRight: "8px",
+                      marginBottom: "8px"
+                    }
                   },
-                  style: {
-                    marginRight: "8px",
-                    marginBottom: "8px"
-                  }
-                },
-                "去付款"
-              )
-            ]);
+                  "去付款"
+                )
+              ]);
+            } else {
+              return h("p", { style: { color: "red" } }, "等待放行");
+            }
           }
         }
       });
@@ -345,25 +398,39 @@ export default {
 
     getOrder(loading = false) {
       this.loading = loading; // 是否显示加载动画
-
-      let params = {
-        status: 2,
-        pageNo: 0,
-        pageSize: 20
-      };
-
       this.$http
         .post(this.host + "/otc/order/goToPayOrConfirm")
         .then(response => {
-          var resp = response.body;
+          let resp = response.body;
           if (resp.code === 0 && resp.data) {
-            this.tableDatas = resp.data;
-            this.isEmergeNewOrder();
+            let resList = resp.data;
+            let newRes = [];
+            resList.forEach(ele => {
+              newRes.push(Object.assign(ele, { orderType: "sellBuy" }));
+            });
+            this.tableDatas = newRes;
+            this.getCostomer();
           } else {
             this.$Message.error(resp.message);
           }
-          this.loading = false;
         });
+    },
+    getCostomer() {
+      this.$http.post(this.host + "/otc/order/appealOrder").then(response => {
+        let resp = response.body;
+        if (resp.code === 0 && resp.data) {
+          let resList = resp.data;
+          let newRes = [];
+          resList.forEach(ele => {
+            newRes.push(Object.assign(ele, { orderType: "customer" }));
+          });
+          this.tableDatas = this.tableDatas.concat(newRes);
+          console.log(this.tableDatas);
+        } else {
+          this.$Message.error(resp.message);
+        }
+        this.loading = false;
+      });
     },
 
     /**
@@ -408,16 +475,18 @@ export default {
 
 <template>
   <div class="nav-rights">
-    <div style="margin-bottom: 10px; text-align:center;overflow:hidden">
-      <span style="float:right">
-        <Checkbox v-model="audio.open">
-          {{ audio.open ? "关闭" : "开启" }}新订单消息提醒
-        </Checkbox>
-      </span>
-    </div>
-    <audio id="noticeMusic" :src="audio.src">
-      您的浏览器不支持 audio 标签。
-    </audio>
+    <template v-if="false">
+      <div style="margin-bottom: 10px; text-align:center;overflow:hidden">
+        <span style="float:right">
+          <Checkbox v-model="audio.open">
+            {{ audio.open ? "关闭" : "开启" }}新订单消息提醒
+          </Checkbox>
+        </span>
+      </div>
+      <audio id="noticeMusic" :src="audio.src">
+        您的浏览器不支持 audio 标签。
+      </audio>
+    </template>
 
     <div class="nav-right">
       <div class="bill_box_order">

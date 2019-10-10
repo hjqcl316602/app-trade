@@ -422,7 +422,7 @@ export default {
                             if (resp.code == 0) {
                               self.$Message.success(resp.message);
                               // self.$router.go(0)
-                              self.getAd();
+                              self.init();
                             } else {
                               self.$Message.error(resp.message);
                             }
@@ -441,7 +441,7 @@ export default {
                             if (resp.code == 0) {
                               self.$Message.success(resp.message);
                               // self.$router.go(0)
-                              self.getAd();
+                              self.init();
                             } else {
                               self.$Message.error(resp.message);
                             }
@@ -477,7 +477,7 @@ export default {
                                 var resp = response.body;
                                 if (resp.code == 0) {
                                   self.$Message.success(resp.message);
-                                  self.remove(params.index);
+                                    self.init()
                                 } else {
                                   self.$Message.error(resp.message);
                                 }
@@ -502,6 +502,10 @@ export default {
     };
   },
   methods: {
+      init(){
+          this.currentPage = 1;
+          this.getAd()
+      },
     sureSave() {
       let checker = new Checker();
       console.log(this.edit);
@@ -553,7 +557,7 @@ export default {
                 this.edit.number = "";
                 this.edit.payMode = "";
                 this.edit.maxLimit = "";
-                this.getAd();
+                this.init();
               } else {
                 this.$Message.error(resp.message);
               }
@@ -570,7 +574,7 @@ export default {
                 this.edit.number = "";
                 this.edit.payMode = "";
                 this.edit.maxLimit = "";
-                this.getAd();
+                this.init();
               } else {
                 this.$Message.error(resp.message);
               }
@@ -672,26 +676,34 @@ export default {
     banding() {
       this.$router.push("/uc/account");
     },
-    changePage() {},
+    changePage(page) {
+        this.currentPage = page;
+        this.getAd()
+    },
     getAd() {
       //获取个人广告
-      this.$http.post(this.host + "/otc/advertise/all").then(response => {
-        var resp = response.body;
-        if (resp.code == 0) {
-          this.tableAdv = resp.data.content;
-          // console.log(this.tableAdv);
-          for (var i = 0; i < this.tableAdv.length; i++) {
-            this.tableAdv[i].coinUnit = this.tableAdv[i].coin.unit;
+      this.$http
+        .post(this.host + "/otc/advertise/all", {
+          pageNo: this.currentPage,
+          pageSize: this.pageNumber
+        })
+        .then(response => {
+          var resp = response.body;
+          if (resp.code === 0) {
+            this.tableAdv = resp.data.content;
+            // console.log(this.tableAdv);
+            for (var i = 0; i < this.tableAdv.length; i++) {
+              this.tableAdv[i].coinUnit = this.tableAdv[i].coin.unit;
+            }
+            this.loading = false;
+            //this.dataCount = resp.data.length
+            this.totalPage = resp.data.totalElements;
+          } else {
+            // this.$Message.error(resp.message);
+            // this.$Message.error(this.$t('common.logintip'));
+            this.$Message.error(this.loginmsg);
           }
-          this.loading = false;
-          //this.dataCount = resp.data.length
-          this.totalPage = resp.data.totalElements;
-        } else {
-          // this.$Message.error(resp.message);
-          // this.$Message.error(this.$t('common.logintip'));
-          this.$Message.error(this.loginmsg);
-        }
-      });
+        });
     },
     publish(type) {
       if (type == "coin") {
@@ -712,7 +724,7 @@ export default {
     }
   },
   created() {
-    this.getAd();
+    this.init();
   }
 };
 </script>
