@@ -404,6 +404,7 @@ export default {
      */
 
     sendSocketMessage: function(params) {
+        console.log(this.message)
       let message = {};
       message["uidFrom"] = this.msg.myId;
       message["nameFrom"] = this.user.username;

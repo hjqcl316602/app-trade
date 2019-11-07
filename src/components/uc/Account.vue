@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       storage: {
-        types: ["银行卡", "微信", "支付宝", "云闪付", "聚合码"]
+        types: ["银行卡", "微信", "支付宝", "云闪付", "聚合码",'动态码']
       },
       uploadHeaders: { "x-auth-token": localStorage.getItem("TOKEN") },
       //uploadUrl: 'http://103.91.217.67/res/upload/image/qr.do',
@@ -27,7 +27,7 @@ export default {
       },
       password: "",
       params: {
-        type: "3",
+        type: "6",
         name: "",
         realName: "",
         url: "",
@@ -68,6 +68,9 @@ export default {
         url: "",
         payMode: []
       },
+        dynamic:{
+          name:''
+        },
 
       setting: [],
       del: {
@@ -386,6 +389,28 @@ export default {
         } else {
           this.$Message.error(check["message"]);
         }
+      }else if (this.params.type === "6") {
+          check
+              .set(this.dynamic.name, true, "请输入您的动态码账号")
+              .set(this.password, true, "请输入您的资金密码");
+          if (check.pass) {
+              this.$request("/uc/approve/bind/payInfo")({
+                  type: this.params.type,
+                  name: this.dynamic.name,
+                  jyPassword: this.password
+              }).then(res => {
+                  if (res["code"] === 0) {
+                      this.popup.edit = false;
+                      this.dynamic.name = "";
+                      this.getSetting();
+                      this.$Message.success(res["message"]);
+                  } else {
+                      this.$Message.error(res["message"]);
+                  }
+              });
+          } else {
+              this.$Message.error(check["message"]);
+          }
       }
     },
     deleteBeforePay(item) {
@@ -718,6 +743,7 @@ export default {
               <i-option value="3">支付宝</i-option>
               <i-option value="4">云闪付</i-option>
               <i-option value="5">聚合码</i-option>
+              <i-option value="6">动态码</i-option>
             </i-select>
           </div>
         </div>
@@ -1143,6 +1169,28 @@ export default {
             </div>
           </div>
         </template>
+        <template v-if="params.type == '6'">
+          <div v-flex v-css="{ marginBottom: 'large' }">
+            <div v-flex-item="{ span: 6 }">
+              <div
+                      v-css="{
+                  lineHeight: '32px',
+                  textAlign: 'right',
+                  paddingRight: 'large'
+                }"
+              >
+                <span class="vui-color--danger">*</span>
+                动态码账号
+              </div>
+            </div>
+            <div v-flex-item="{ span: 18 }">
+              <i-input
+                      v-model="dynamic.name"
+                      placeholder="请输入您的动态码账号..."
+              ></i-input>
+            </div>
+          </div>
+        </template>
 
         <div v-flex v-css="{ marginBottom: 'large' }">
           <div v-flex-item="{ span: 6 }">
@@ -1316,7 +1364,26 @@ export default {
               </span>
             </div>
           </template>
-          <template v-if="item['type'] != 1">
+          <template v-if="item['type'] == 6">
+            <div
+                    class="vui-flex  vui-align-items--center vui-padding-right--large"
+                    style="width:120px;border-right: 1px dashed #27313e"
+            >
+              <div
+                      class="app-icon app-icon--medium  app-icon--dynamic vui-margin-right--large"
+              ></div>
+              <span>动态码</span>
+            </div>
+            <div
+                    class="vui-flex--1 vui-padding-right--large vui-padding-left--large"
+            >
+              <span>
+                {{ item["name"] || "--" }}
+              </span>
+            </div>
+          </template>
+
+          <template v-if="item['type'] == 2 || item['type'] == 3  || item['type'] == 4  || item['type'] == 5 ">
             <div
               class=" vui-padding-left vui-text-align--right app-cursor--pointer"
               @click="selectPicture(item)"
@@ -1371,751 +1438,6 @@ export default {
               </div>
             </div>
           </template>
-        </div>
-      </div>
-
-      <div class="vui-row--flex vui-row-gutter" v-if="false">
-        <div
-          class="vui-span--6 vui-margin-bottom--large "
-          v-for="(item, index) in openSetting"
-          :key="index"
-        >
-          <div class="app-border app-account-item" style="height:100%">
-            <div class="vui-padding--large">
-              <div
-                class="vui-flex vui-justify-content--space-between vui-margin-bottom"
-              >
-                <i
-                  class=" app-icon app-icon--large  app-icon--undertone"
-                  :class="{
-                    'app-icon--bank': item['type'] === 1,
-                    'app-icon--wechat': item['type'] === 2,
-                    'app-icon--alipay': item['type'] === 3,
-                    'app-icon--unionpay': item['type'] === 4
-                  }"
-                ></i>
-                <div
-                  class="app-icon app-icon--small app-icon--star"
-                  v-if="item['checked'] == 1"
-                ></div>
-              </div>
-
-              <div
-                class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-              >
-                <div
-                  class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                  style="width:60px;"
-                >
-                  <span class="vui-color--label">类型</span>
-                </div>
-                <div class="vui-flex--1 vui-padding-left vui-text-align--left">
-                  <span>
-                    {{ storage.types[item["type"] - 1] }}
-                  </span>
-                </div>
-              </div>
-
-              <div
-                class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-              >
-                <div
-                  class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                  style="width:60px;"
-                >
-                  <span class="vui-color--label">状态</span>
-                </div>
-                <div class="vui-flex--1 vui-padding-left vui-text-align--left">
-                  <span
-                    v-css="{ color: 'primary' }"
-                    v-if="item['checked'] == 1"
-                  >
-                    开启
-                  </span>
-                  <span v-else>
-                    关闭
-                  </span>
-                </div>
-              </div>
-
-              <template v-if="item['type'] == 1">
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">姓名</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["realName"] }}</span>
-                  </div>
-                </div>
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">卡号</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["url"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">开户行</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["name"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">简称</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["alipayOrMask"] }}</span>
-                  </div>
-                </div>
-              </template>
-              <template v-if="item['type'] == 2">
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">账号</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["name"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">收款码</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left app-cursor--pointer"
-                    @click="selectPicture(item)"
-                  >
-                    <img
-                      :src="item['originUrl']"
-                      alt=""
-                      style="max-width:100px"
-                    />
-                    <Tooltip v-if="false">
-                      <div v-css="{ cursor: 'pointer' }">
-                        <i
-                          class="app-icon app-icon--small app-icon--shrink"
-                        ></i>
-                      </div>
-                      <div slot="content">
-                        <img
-                          alt=""
-                          style=" max-width: 200px"
-                          :src="item['originUrl']"
-                        />
-                      </div>
-                    </Tooltip>
-                  </div>
-                </div>
-              </template>
-              <template v-if="item['type'] == 3">
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">姓名</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["realName"] }}</span>
-                  </div>
-                </div>
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">账号</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left "
-                  >
-                    <span>{{ item["name"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed "
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">ID</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["alipayOrMask"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">收款码</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left app-cursor--pointer"
-                    @click="selectPicture(item)"
-                  >
-                    <img
-                      :src="item['originUrl']"
-                      alt=""
-                      style="max-width:100px"
-                    />
-                  </div>
-                </div>
-              </template>
-              <template v-if="item['type'] == 4">
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">账号</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["name"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">收款码</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left app-cursor--pointer"
-                    @click="selectPicture(item)"
-                  >
-                    <img
-                      :src="item['originUrl']"
-                      alt=""
-                      style="max-width:100px"
-                    />
-                    <Tooltip v-if="false">
-                      <div class="app-cursor--pointer">
-                        <i
-                          class="app-icon app-icon--small app-icon--shrink"
-                        ></i>
-                      </div>
-                      <div slot="content">
-                        <img
-                          alt=""
-                          style=" max-width: 200px"
-                          :src="item['originUrl']"
-                        />
-                      </div>
-                    </Tooltip>
-                  </div>
-                </div>
-              </template>
-              <template v-if="item['type'] == 5">
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">账号</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["name"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">收款码</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left app-cursor--pointer"
-                    @click="selectPicture(item)"
-                  >
-                    <img
-                      :src="item['originUrl']"
-                      alt=""
-                      style="max-width:100px"
-                    />
-                    <Tooltip v-if="false">
-                      <div class="app-cursor--pointer">
-                        <i
-                          class="app-icon app-icon--small app-icon--shrink"
-                        ></i>
-                      </div>
-                      <div slot="content">
-                        <img
-                          alt=""
-                          style=" max-width: 200px"
-                          :src="item['originUrl']"
-                        />
-                      </div>
-                    </Tooltip>
-                  </div>
-                </div>
-              </template>
-            </div>
-            <div
-              class="app-account-btns vui-flex vui-justify-content--flex-end vui-align-items--center vui-padding-right--large"
-            >
-              <div
-                class="vui-margin-left"
-                v-if="
-                  item['type'] == 2 || item['type'] == 3 || item['type'] == 4
-                "
-                @click="jumpManagePage(item)"
-              >
-                <i-button type="default">固额码管理</i-button>
-              </div>
-              <div
-                class="vui-margin-left"
-                v-if="item['checked'] === 0"
-                @click="toggleBeforePay(item)"
-              >
-                <i-button type="default">开启</i-button>
-              </div>
-
-              <div
-                class="vui-margin-left"
-                v-if="item['checked'] === 1"
-                @click="toggleBeforePay(item)"
-              >
-                <i-button type="default">关闭</i-button>
-              </div>
-              <div
-                class="vui-margin-left"
-                @click="deleteBeforePay(item)"
-                v-if="item['checked'] === 0"
-              >
-                <i-button type="default">解绑</i-button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vui-row--flex vui-row-gutter" v-if="false">
-        <div
-          class="vui-span--6 vui-margin-bottom--large "
-          v-for="(item, index) in closeSetting"
-          :key="index"
-        >
-          <div class="app-border app-account-item" style="height:100%">
-            <div class="vui-padding--large">
-              <div
-                class="vui-flex vui-justify-content--space-between vui-margin-bottom"
-              >
-                <i
-                  class=" app-icon app-icon--large  app-icon--undertone"
-                  :class="{
-                    'app-icon--bank': item['type'] === 1,
-                    'app-icon--wechat': item['type'] === 2,
-                    'app-icon--alipay': item['type'] === 3,
-                    'app-icon--unionpay': item['type'] === 4
-                  }"
-                ></i>
-                <div
-                  class="app-icon app-icon--small app-icon--star"
-                  v-if="item['checked'] == 1"
-                ></div>
-              </div>
-
-              <div
-                class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-              >
-                <div
-                  class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                  style="width:60px;"
-                >
-                  <span class="vui-color--label">类型</span>
-                </div>
-                <div class="vui-flex--1 vui-padding-left vui-text-align--left">
-                  <span>
-                    {{ storage.types[item["type"] - 1] }}
-                  </span>
-                </div>
-              </div>
-
-              <div
-                class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-              >
-                <div
-                  class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                  style="width:60px;"
-                >
-                  <span class="vui-color--label">状态</span>
-                </div>
-                <div class="vui-flex--1 vui-padding-left vui-text-align--left">
-                  <span
-                    v-css="{ color: 'primary' }"
-                    v-if="item['checked'] == 1"
-                  >
-                    开启
-                  </span>
-                  <span v-else>
-                    关闭
-                  </span>
-                </div>
-              </div>
-
-              <template v-if="item['type'] == 1">
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">姓名</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["realName"] }}</span>
-                  </div>
-                </div>
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">卡号</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["url"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">开户行</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["name"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">简称</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["alipayOrMask"] }}</span>
-                  </div>
-                </div>
-              </template>
-              <template v-if="item['type'] == 2">
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">账号</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["name"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">收款码</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left app-cursor--pointer"
-                    @click="selectPicture(item)"
-                  >
-                    <img
-                      :src="item['originUrl']"
-                      alt=""
-                      style="max-width:100px"
-                    />
-                    <Tooltip v-if="false">
-                      <div v-css="{ cursor: 'pointer' }">
-                        <i
-                          class="app-icon app-icon--small app-icon--shrink"
-                        ></i>
-                      </div>
-                      <div slot="content">
-                        <img
-                          alt=""
-                          style=" max-width: 200px"
-                          :src="item['originUrl']"
-                        />
-                      </div>
-                    </Tooltip>
-                  </div>
-                </div>
-              </template>
-              <template v-if="item['type'] == 3">
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">姓名</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["realName"] }}</span>
-                  </div>
-                </div>
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">账号</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left "
-                  >
-                    <span>{{ item["name"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed "
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">ID</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["alipayOrMask"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">收款码</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left app-cursor--pointer"
-                    @click="selectPicture(item)"
-                  >
-                    <img
-                      :src="item['originUrl']"
-                      alt=""
-                      style="max-width:100px"
-                    />
-                    <Tooltip v-if="false">
-                      <div v-css="{ cursor: 'pointer' }">
-                        <i
-                          class="app-icon app-icon--small app-icon--shrink"
-                        ></i>
-                      </div>
-                      <div slot="content">
-                        <img
-                          alt=""
-                          style=" max-width: 200px"
-                          :src="item['originUrl']"
-                        />
-                      </div>
-                    </Tooltip>
-                  </div>
-                </div>
-              </template>
-              <template v-if="item['type'] == 4">
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">账号</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left"
-                  >
-                    <span>{{ item["name"] }}</span>
-                  </div>
-                </div>
-
-                <div
-                  class="vui-flex vui-padding-bottom vui-padding-top app-border-bottom app-border--dashed"
-                >
-                  <div
-                    class="vui-flex--none vui-text-align--right vui-padding-right app-border-right app-border--dashed"
-                    style="width:60px;"
-                  >
-                    <span class="vui-color--label">收款码</span>
-                  </div>
-                  <div
-                    class="vui-flex--1 vui-padding-left vui-text-align--left app-cursor--pointer"
-                    @click="selectPicture(item)"
-                  >
-                    <img
-                      :src="item['originUrl']"
-                      alt=""
-                      style="max-width:100px"
-                    />
-                    <Tooltip v-if="false">
-                      <div class="app-cursor--pointer">
-                        <i
-                          class="app-icon app-icon--small app-icon--shrink"
-                        ></i>
-                      </div>
-                      <div slot="content">
-                        <img
-                          alt=""
-                          style=" max-width: 200px"
-                          :src="item['originUrl']"
-                        />
-                      </div>
-                    </Tooltip>
-                  </div>
-                </div>
-              </template>
-            </div>
-            <div
-              class="app-account-btns vui-flex vui-justify-content--flex-end vui-align-items--center vui-padding-right--large"
-            >
-              <div
-                class="vui-margin-left"
-                v-if="item['type'] != 1"
-                @click="jumpManagePage(item)"
-              >
-                <i-button type="default">固额码管理</i-button>
-              </div>
-              <div
-                class="vui-margin-left"
-                v-if="item['checked'] === 0"
-                @click="toggleBeforePay(item)"
-              >
-                <i-button type="default">开启</i-button>
-              </div>
-
-              <div
-                class="vui-margin-left"
-                v-if="item['checked'] === 1"
-                @click="toggleBeforePay(item)"
-              >
-                <i-button type="default">关闭</i-button>
-              </div>
-              <div
-                class="vui-margin-left"
-                @click="deleteBeforePay(item)"
-                v-if="item['checked'] === 0"
-              >
-                <i-button type="default">解绑</i-button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

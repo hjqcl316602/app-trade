@@ -48,14 +48,15 @@ export default {
 
           if (res["code"] === "000") {
             this.chatBox.count = res["data"] && res["data"]["unReadCnt"];
-          } else {
-            this.$Message.error("获取未读信息条数失败！");
+            if(this.chatBox.count > 0 ){
+                this.$Notice.open({
+                    title: "通知",
+                    desc: "你有未读的客服消息："+this.chatBox.count + '条，请注意查看。',
+                    duration: 5
+                });
+            }
           }
         })
-        .catch(err => {
-          console.log("err", err);
-          this.$Message.error("获取未读信息条数失败！");
-        });
     },
     /**
      * 设置定时器

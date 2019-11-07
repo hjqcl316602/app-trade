@@ -93,10 +93,5 @@ new Vue({
   store,
   template: "<App/>",
   components: { App },
-  created() {
-    // 全局配置提示弹出框
-    this.$Notice.config({
-      top: 85
-    });
-  }
+
 });

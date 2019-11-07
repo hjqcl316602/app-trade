@@ -33,7 +33,7 @@ const host = isLocal ? (!isUseProd ? 'http://trade.bstchain.com' : 'http://103.9
 // 配置图片上传路径 可以将 trade localhost等作为测试
 
 const isTest =
-  ['localhost', 'trade'].findIndex(item => {
+  ['localhost', 'file://','192.168'].findIndex(item => {
     return window.location.origin.indexOf(item) > -1;
   }) > -1;
 

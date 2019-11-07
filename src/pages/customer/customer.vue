@@ -257,7 +257,6 @@ export default {
     scrollToBottom() {
       setTimeout(() => {
         var div = this.$refs["chat"];
-        console.log(div);
         div && (div.scrollTop = div.scrollHeight);
       }, 300);
     },

@@ -26,17 +26,24 @@
             </div>
             <div class="vui-span--18">
               <div class="vui-margin-bottom">
-                <span class="vui-color--danger">承兑额度=出售或购买的上限</span>
+                <span class="vui-color--danger">
+                  承兑额度=出售或购买的上限
+                </span>
               </div>
               <div class="vui-margin-bottom">
-                <span class="vui-color--danger"
-                  >承兑额度增加=用其他数字货币兑换TTM会增加TTM数量的额度</span
-                >
+                <span class="vui-color--danger">
+                  承兑额度增加=用其他数字货币兑换TTM会增加TTM数量的额度
+                </span>
               </div>
               <div class="vui-margin-bottom">
-                <span class="vui-color--danger"
-                  >承兑额度的减少=用TTM兑换其他数字货币会减少TTM数量的额度</span
-                >
+                <span class="vui-color--danger">
+                  承兑额度的减少=用TTM兑换其他数字货币会减少TTM数量的额度
+                </span>
+              </div>
+              <div class="vui-margin-bottom" v-if="false">
+                <span class="vui-color--danger">
+                  发布广告时，当选择支付宝作为付款方式时，交易数量应不小于50100
+                </span>
               </div>
             </div>
           </div>
@@ -87,6 +94,34 @@
               </RadioGroup>
             </div>
           </div>
+
+          <div
+            class="vui-row--flex vui-align-items--center vui-margin-bottom--large"
+          >
+            <div
+              class="vui-span--6 vui-text-align--right vui-padding-right--large"
+            >
+              <span class="vui-color--danger">*</span>
+              <span class="vui-color--label">付款方式</span>
+            </div>
+            <div class="vui-span--18">
+              <div class="vui-flex vui-align-items--center">
+                <div class="vui-flex--1">
+                  <Select v-model="edit.payMode">
+                    <Option
+                      v-for="item in edit.payModeList"
+                      :value="item.value"
+                      :key="item.value"
+                      >{{ item.label }}</Option
+                    >
+                  </Select>
+                </div>
+                <div class="vui-margin-left">
+                  <i-button @click="banding">绑定</i-button>
+                </div>
+              </div>
+            </div>
+          </div>
           <div
             class="vui-row--flex vui-align-items--center vui-margin-bottom--large"
           >
@@ -107,17 +142,27 @@
               <div class="vui-margin-top">
                 <div v-if="edit.advertiseType === '1'">
                   <span class="vui-color--danger">提示：可出售额度</span>
-                  <span class="vui-color--primary">{{
-                    edit.base.leftSellLimit
-                  }}</span>
-                  <span class="vui-color--danger">,交易数量不小于100</span>
+                  <span class="vui-color--primary">
+                    {{ edit.base.leftSellLimit }}
+                  </span>
+                  <span class="vui-color--danger" v-if="false">
+                    ,交易数量不小于
+                    <span class="vui-color--primary">
+                      {{ edit.payMode === "支付宝" ? "50100" : "10000" }}
+                    </span>
+                  </span>
                 </div>
                 <div v-else>
                   <span class="vui-color--danger">提示：可购买额度</span>
-                  <span class="vui-color--primary">{{
-                    edit.base.leftBuyLimit
-                  }}</span>
-                  <span class="vui-color--danger">,交易数量不小于100</span>
+                  <span class="vui-color--primary">
+                    {{ edit.base.leftBuyLimit }}
+                  </span>
+                  <span class="vui-color--danger" v-if="false">
+                    ,交易数量不小于
+                    <span class="vui-color--primary">
+                      {{ edit.payMode === "支付宝" ? "50100" : "10000" }}
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -155,34 +200,6 @@
                 placeholder="请输入您的最大交易额"
                 autocomplete="off"
               ></i-input>
-            </div>
-          </div>
-
-          <div
-            class="vui-row--flex vui-align-items--center vui-margin-bottom--large"
-          >
-            <div
-              class="vui-span--6 vui-text-align--right vui-padding-right--large"
-            >
-              <span class="vui-color--danger">*</span>
-              <span class="vui-color--label">付款方式</span>
-            </div>
-            <div class="vui-span--18">
-              <div class="vui-flex vui-align-items--center">
-                <div class="vui-flex--1">
-                  <Select v-model="edit.payMode">
-                    <Option
-                      v-for="item in edit.payModeList"
-                      :value="item.value"
-                      :key="item.value"
-                      >{{ item.label }}</Option
-                    >
-                  </Select>
-                </div>
-                <div class="vui-margin-left">
-                  <i-button @click="banding">绑定</i-button>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -477,7 +494,7 @@ export default {
                                 var resp = response.body;
                                 if (resp.code == 0) {
                                   self.$Message.success(resp.message);
-                                    self.init()
+                                  self.init();
                                 } else {
                                   self.$Message.error(resp.message);
                                 }
@@ -502,41 +519,16 @@ export default {
     };
   },
   methods: {
-      init(){
-          this.currentPage = 1;
-          this.getAd()
-      },
+    init() {
+      this.currentPage = 1;
+      this.getAd();
+    },
     sureSave() {
       let checker = new Checker();
       console.log(this.edit);
       checker
-        .set(this.edit.number + "", true, "请输入交易数量")
-        .check("交易数量格式错误，请输入合法的金额格式", value => {
-          return regexNumberMoney.test(value);
-        })
-        .check("交易数量不小于100", value => {
-          return value - 0 >= 100;
-        })
-        .check("交易数量不能大于可用额度", value => {
-          if (this.edit.advertiseType === "1") {
-            return value - 0 <= this.edit.base.leftSellLimit - 0;
-          } else {
-            return value - 0 <= this.edit.base.leftBuyLimit - 0;
-          }
-        })
-        .set(this.edit.maxLimit + "")
-        .check("最大交易额格式错误，请输入合法的金额格式", value => {
-          return regexNumberMoney.test(value);
-        })
-        .check("最大交易额不小于100", value => {
-          return value - 0 >= 100;
-        })
-        .check("最大交易额不能大于交易数量", value => {
-          return value - 0 <= this.edit.number - 0;
-        })
-
-        .set(this.edit.payMode, true, "请选择收款方式")
-        .set(this.edit.password, true, "请输入资金密码");
+          .set(this.edit.payMode, true, "请选择收款方式")
+        .set(this.edit.number + "", true, "请输入交易数量").set(this.edit.password, true, "请输入资金密码");
       if (checker.pass) {
         let object = {
           number: this.edit.number,
@@ -655,6 +647,9 @@ export default {
             if (data.findIndex(item => item["type"] === 5) > -1) {
               this.edit.payModeList.push({ label: "聚合码", value: "聚合码" });
             }
+            if (data.findIndex(item => item["type"] === 6) > -1) {
+              this.edit.payModeList.push({ label: "动态码", value: "动态码" });
+            }
           } else {
             this.$Message.error(resp.message);
           }
@@ -677,8 +672,8 @@ export default {
       this.$router.push("/uc/account");
     },
     changePage(page) {
-        this.currentPage = page;
-        this.getAd()
+      this.currentPage = page;
+      this.getAd();
     },
     getAd() {
       //获取个人广告
