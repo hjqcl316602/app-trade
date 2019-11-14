@@ -9,7 +9,7 @@
   <div class="nav-rights">
     <Modal
       v-model="popup.transfer"
-      title="内部转账"
+      title="转账"
       :mask-closable="false"
       class="ivu-modal--left"
       width="400px"
@@ -198,7 +198,7 @@
       </div>
       <div slot="footer">
         <i-button type="default" @click="popup.transfer = false">取消</i-button>
-        <i-button type="primary" @click="transferMoney">保存</i-button>
+        <i-button type="primary" @click="transferMoney"  :disabled="transfer.loading">保存</i-button>
       </div>
     </Modal>
 
@@ -272,6 +272,7 @@ export default {
         realName: "",
         jsPassword: "",
         coinType: "",
+          loading:false,
         accountList: []
       }
     };
@@ -302,6 +303,7 @@ export default {
     // 内部转账
     transferMoney() {
       let check = new Checker();
+      if(this.transfer.loading) return this.$Message.error('正在转账中...');
       check
         .set(this.transfer.coinType, true, "请选择币种")
         .set(this.transfer.number.toString(), true, "请输入转账数量")
@@ -318,6 +320,7 @@ export default {
         .set(this.transfer.realName, true, "请输入对方的真实姓名")
         .set(this.transfer.jsPassword, true, "请输入您的交易密码");
       if (check.pass) {
+          this.transfer.loading = true
         this.$http
           .post(this.host + "/otc/transfer/transferToUser", {
             unit: this.transfer.coinType,
@@ -327,22 +330,24 @@ export default {
             jyPassword: this.transfer.jsPassword
           })
           .then(res => {
-            let data = res["data"];
-            if (data["code"] === 0) {
-              this.$Message.success("转账成功");
-              this.popup.transfer = false;
-              this.transfer.jsPassword = "";
-              this.transfer.realName = "";
-              this.transfer.mobile = "";
-              this.transfer.coinType = "";
-              this.transfer.number = 0;
-              this.initialize();
-            } else {
-              this.$Message.error(data["message"]);
-            }
+                this.transfer.loading = false
+                let data = res["data"];
+                if (data["code"] === 0) {
+                    this.$Message.success("转账成功");
+                    this.popup.transfer = false;
+                    this.transfer.jsPassword = "";
+                    this.transfer.realName = "";
+                    this.transfer.mobile = "";
+                    this.transfer.coinType = "";
+                    this.transfer.number = 0;
+                    this.initialize();
+                } else {
+                    this.$Message.error(data["message"]);
+                }
           });
       } else {
-        this.$Message.error(check.message);
+          this.transfer.loading = false
+          this.$Message.error(check.message);
       }
     },
 
@@ -606,7 +611,8 @@ export default {
               {
                 props: {
                   type: "info",
-                  size: "small"
+                  size: "small",
+
                 },
                 on: {
                   click: () => {
@@ -617,7 +623,7 @@ export default {
                   marginRight: "8px"
                 }
               },
-              "内部转账"
+              "转账"
             )
           );
           return h("p", actions);
@@ -633,7 +639,7 @@ export default {
   }
 };
 </script>
- 
+
 <style lang="scss">
 .nav-right {
   .rightarea.bill_box {

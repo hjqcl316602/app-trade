@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9692b47a-c8b5-4993-bfb1-767f61636db5" name="Default" comment="添加转账信息">
-      <change afterPath="$PROJECT_DIR$/config/network.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/rewrite.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/rewrite.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/chat/chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat/chat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/otc/Chatline.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/otc/Chatline.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/otc/MyAd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/otc/MyAd.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/uc/Account.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/uc/Account.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/uc/account.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/uc/account.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/prototype.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/prototype.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/customer/customer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/customer/customer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/assets/js/1.03c0a9130f01b142faab.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/assets/js/6.7023cb622ca1a6842c1f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/uc/MoneyIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/uc/MoneyIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/assets/js/7.cdfb4a0e5938660629b6.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,19 +15,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <element signature="e#316#338#0" expanded="true" />
-                <element signature="e#948#981#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/config/mixins.methods.js">
           <provider selected="true" editor-type-id="text-editor" />
@@ -81,7 +55,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/config/prototype.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1171">
+            <state relative-caret-position="1116">
               <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
@@ -90,11 +64,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="314">
               <caret line="393" column="32" selection-start-line="393" selection-start-column="32" selection-end-line="397" selection-end-column="35" />
               <folding>
                 <element signature="e#11810#11832#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/uc/MoneyIndex.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="767">
+              <caret line="351" column="6" selection-start-line="351" selection-start-column="6" selection-end-line="351" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -108,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/chat/chat.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="961">
-              <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+            <state relative-caret-position="1550">
+              <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -210,6 +193,7 @@
         <option value="$PROJECT_DIR$/src/components/otc/MyAd.vue" />
         <option value="$PROJECT_DIR$/src/config/prototype.js" />
         <option value="$PROJECT_DIR$/src/components/chat/chat.vue" />
+        <option value="$PROJECT_DIR$/src/components/uc/MoneyIndex.vue" />
       </list>
     </option>
   </component>
@@ -229,7 +213,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-56" />
     <option name="y" value="-17" />
     <option name="width" value="1936" />
@@ -268,13 +252,47 @@
               <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
+              <item name="otc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="uc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
               <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="exchange" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="otc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="uc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exchange_web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="exchange_web" type="b2602c69:ProjectViewProjectNode" />
@@ -290,7 +308,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/AA.SUBJECT/app-chat" />
+    <property name="last_opened_file_path" value="D:/AA.SUBJECT/app-pay-mobile-template" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -419,17 +437,21 @@
       <workItem from="1572866248505" duration="511000" />
       <workItem from="1572917925714" duration="5070000" />
       <workItem from="1573006197825" duration="3800000" />
-      <workItem from="1573092246352" duration="2072000" />
+      <workItem from="1573092246352" duration="2228000" />
+      <workItem from="1573435827581" duration="659000" />
+      <workItem from="1573440419453" duration="437000" />
+      <workItem from="1573441238961" duration="1978000" />
+      <workItem from="1573690942726" duration="2405000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197717000" />
+    <option name="totallyTimeSpent" value="203352000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1096" height="1896" extended-state="7" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21644613" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12884161" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -443,7 +465,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32986256" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.29415104" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3052303" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -574,13 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
           <caret line="20" column="26" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/uc/MoneyIndex.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15779">
-          <caret line="510" column="38" selection-start-line="510" selection-start-column="38" selection-end-line="510" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -720,16 +735,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#188#212#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="285">
+          <caret line="53" column="38" lean-forward="true" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
           <folding>
             <element signature="e#316#338#0" expanded="true" />
             <element signature="e#948#981#0" expanded="true" />
@@ -766,7 +778,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/config/prototype.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1171">
+        <state relative-caret-position="1116">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
@@ -778,9 +790,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/chat/chat.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1550">
+          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
+        <state relative-caret-position="314">
           <caret line="393" column="32" selection-start-line="393" selection-start-column="32" selection-end-line="397" selection-end-column="35" />
           <folding>
             <element signature="e#11810#11832#0" expanded="true" />
@@ -788,10 +807,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/chat/chat.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/uc/MoneyIndex.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="961">
-          <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+        <state relative-caret-position="767">
+          <caret line="351" column="6" selection-start-line="351" selection-start-column="6" selection-end-line="351" selection-end-column="6" />
         </state>
       </provider>
     </entry>
