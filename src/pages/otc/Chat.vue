@@ -128,28 +128,23 @@
                     <span>{{ statusText }}</span>
                   </h6>
                   <div v-show="statusBtn == 1 && tradeType == 0">
-                    <Button type="warning" @click="modal1 = true"
-                      >
+                    <Button type="warning" @click="modal1 = true">
                       付款完成
                     </Button>
-                    <Button @click="modal3 = true" type="error"
-                      >
+                    <Button @click="modal3 = true" type="error">
                       取消交易
                     </Button>
                   </div>
                   <div v-show="statusBtn == 2 && tradeType == 0">
-                    <Button type="warning" @click="beforeAppear"
-                      >
+                    <Button type="warning" @click="beforeAppear">
                       订单申诉
                     </Button>
-                    <Button @click="modal3 = true" type="error"
-                      >
+                    <Button @click="modal3 = true" type="error">
                       取消交易
                     </Button>
                   </div>
                   <div v-show="statusBtn == 2 && tradeType == 1">
-                    <Button type="warning" @click="modal5 = true"
-                      >
+                    <Button type="warning" @click="modal5 = true">
                       确认放行
                     </Button>
                     <Button @click="beforeAppear" type="error">订单申诉</Button>
@@ -207,9 +202,7 @@
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
                         <span class="vui-font-weight--bold">
-                          {{
-                          msg.channelOrderId || "--"
-                        }}
+                          {{ msg.channelOrderId || "--" }}
                         </span>
                       </div>
                     </i-col>
@@ -225,9 +218,7 @@
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
                         <span class="vui-font-weight--bold">
-                          {{
-                          msg.subMemId || "--"
-                        }}
+                          {{ msg.subMemId || "--" }}
                         </span>
                       </div>
                     </i-col>
@@ -344,9 +335,7 @@
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
                         <span class="vui-font-weight--bold">
-                          {{
-                          msg.commission
-                        }}
+                          {{ msg.commission }}
                         </span>
                       </div>
                     </i-col>
@@ -362,9 +351,7 @@
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
                         <span class="vui-font-weight--bold">
-                          {{
-                          msg.payMode
-                        }}
+                          {{ msg.payMode }}
                         </span>
                       </div>
                     </i-col>
@@ -399,9 +386,7 @@
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
                         <span class="vui-font-weight--bold">
-                          {{
-                          msg.payRemark
-                        }}
+                          {{ msg.payRemark }}
                         </span>
                       </div>
                     </i-col>
@@ -417,9 +402,7 @@
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
                         <span class="vui-font-weight--bold">
-                          {{
-                          msg.transferNumber
-                        }}
+                          {{ msg.transferNumber }}
                         </span>
                       </div>
                     </i-col>
@@ -435,9 +418,7 @@
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
                         <span class="vui-font-weight--bold">
-                          {{
-                          msg.transferTime
-                        }}
+                          {{ msg.transferTime }}
                         </span>
                       </div>
                     </i-col>
@@ -449,8 +430,7 @@
                   <Row class="vui-padding--large" type="flex" justify="center">
                     <i-col span="6" class="order-info" v-if="payStatus.bank">
                       <i class="icons bankfor"></i>
-                      <span
-                        >
+                      <span>
                         {{ bankInfo != null ? bankInfo.bankRealName : "" }}
                       </span>
                       <p style="line-height: 30px">
@@ -611,11 +591,21 @@
       ></Input>
 
       <div class="vui-margin-bottom">
-        <span style="color:#999"
-          >当前可用余额 ：<span style="color:#f0ac19;">{{
-            tranfer.balance
-          }}</span>
-        </span>
+        <div style="line-height: 36px;">
+          <span class="vui-color--danger vui-font-weight--bold">温馨提示</span>
+        </div>
+        <div style="line-height: 32px;">
+          <span  > 当前可用数量 | {{ msg.unit }}： </span>
+          <span  class="vui-color--danger">
+            {{ tranfer.balance }}
+          </span>
+        </div>
+        <div style="line-height: 32px">
+          <span>计算格式：</span>
+          <span class="vui-color--danger">
+            数量 = 金额 / 单价、 1 {{msg.unit}} = 1 CNY/ {{ msg.price }} CNY
+          </span>
+        </div>
       </div>
       <div style="margin-bottom:20px;display:flex;">
         <div class="vp-number--block " style="flex:1">
@@ -624,11 +614,6 @@
             v-model="tranfer.number"
             :placeholder="'请输入要转账的' + tranfer.unit + '数量'"
           ></Input-number>
-        </div>
-        <div>
-          <span style="line-height:32px;margin-left:10px">{{
-            tranfer.unit
-          }}</span>
         </div>
       </div>
       <div>
@@ -847,6 +832,7 @@ export default {
       this.tranfer.unit = this.msg.unit;
       this.tranfer.orderSn = this.msg.orderSn;
       this.tranfer.otherSide = this.msg.otherSide;
+      this.tranfer.number = this.msg.amount;
 
       this.getTransferBalance();
     },
