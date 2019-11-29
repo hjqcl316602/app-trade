@@ -980,34 +980,37 @@ export default {
               </div>
             </div>
             <div v-flex-item="{ span: 18 }">
-              <div class="vui-margin-bottom">
-                <i-input
-                  v-model="alipay.userId"
-                  placeholder="请输入您的支付宝ID..."
-                ></i-input>
-              </div>
-              <div>
-                <i-button @click="authBefore">方式一</i-button>
+              <div class="vui-flex">
+                <div class="vui-flex--1 vui-margin-right">
+                  <i-input
+                          v-model="alipay.userId"
+                          placeholder="请输入您的支付宝ID..."
+                  ></i-input>
+                </div>
                 <Tooltip>
-                  <i-button>方式二</i-button>
+                  <i-button>获取</i-button>
                   <div slot="content" style="width:100%;">
                     <div
-                      style="white-space:normal"
-                      class="vui-margin-bottom vui-color--primary"
+                            style="white-space:normal"
+                            class="vui-margin-bottom vui-color--primary"
                     >
                       <span
-                        >打开支付宝APP扫一扫，将得到的结果填入到输入框中即可，确保输入的支付宝ID准确无误，否则导致收款失败</span
+                      >打开支付宝APP扫一扫，将得到的结果填入到输入框中即可，确保输入的支付宝ID准确无误，否则导致收款失败</span
                       >
                     </div>
                     <div>
                       <img
-                        src="../../assets/img/userid.jpg"
-                        alt=""
-                        width="220px"
+                              src="../../assets/img/userid.jpg"
+                              alt=""
+                              width="220px"
                       />
                     </div>
                   </div>
                 </Tooltip>
+              </div>
+              <div>
+                <i-button @click="authBefore" v-if="false">方式一</i-button>
+
               </div>
             </div>
           </div>

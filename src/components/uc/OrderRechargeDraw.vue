@@ -22,7 +22,9 @@ export default {
       withdraw: {
         modal: false,
         value: "",
-        sn: ""
+        sn: "",
+        timer: null,
+        backtime: 0
       },
       recharge: {
         modal: false,
@@ -78,7 +80,11 @@ export default {
         align: "center",
         render: (h, { row }) => {
           if (row.orderType === "customer") {
-            return h("p", { style: { color: "red",'font-weight':800 } }, "申诉订单");
+            return h(
+              "p",
+              { style: { color: "red", "font-weight": 800 } },
+              "申诉订单"
+            );
           }
         }
       });
@@ -198,6 +204,8 @@ export default {
                     on: {
                       click: function() {
                         self.withdraw.modal = true;
+                        self.withdraw.backtime = 5;
+                        self.setReleaseTimer();
                         self.withdraw.sn = params.row && params.row.orderSn;
                       }
                     },
@@ -284,6 +292,28 @@ export default {
     },
 
     /**
+     * 确认放行前
+     */
+    beforeRelease() {
+      this.withdraw.modal = true;
+      this.withdraw.backtime = 5;
+      this.setReleaseTimer();
+    },
+    setReleaseTimer() {
+      this.clearReleaseTimer();
+      this.withdraw.timer = setInterval(() => {
+        this.withdraw.backtime--;
+        if (this.withdraw.backtime === 0) {
+          this.clearReleaseTimer();
+        }
+      }, 1000);
+    },
+    clearReleaseTimer() {
+      clearInterval(this.withdraw.timer);
+      this.withdraw.timer = null;
+    },
+
+    /**
      * 处理订单 - 放币/付款
      */
 
@@ -304,6 +334,7 @@ export default {
             var resp = response.body;
             if (resp.code == 0) {
               this.$Message.success(resp.message);
+              this.withdraw.modal = false
               this.initPage();
             } else {
               this.$Message.error(resp.message);
@@ -465,7 +496,10 @@ export default {
         "order/withdraw/audio/open/status",
         val ? "open" : "close"
       );
-    }
+    },
+      ['withdraw.modal'](){
+          this.withdraw.value = ''
+      }
   },
   beforeDestroy() {
     this.clearLoadingTimer();
@@ -501,6 +535,53 @@ export default {
         </div>
       </div>
     </div>
+    <Modal v-model="withdraw.modal" title="放行提示" width="500px">
+      <div slot="footer">
+        <i-button type="default" v-if="withdraw.backtime"
+          >{{ withdraw.backtime }}秒后操作</i-button
+        >
+        <i-button type="primary" v-else @click="cancelOrder('withdraw')"
+          >确认放行</i-button
+        >
+      </div>
+      <div class="vui-margin-bottom">
+        <p class="vui-color--danger vui-font-weight--bold">温馨提示</p>
+        <p
+          class="vui-color--danger"
+          style="text-indent: 20px;line-height: 36px"
+        >
+          一、最近骗子猖獗，请再次核对金额，金额正确才放行，没有收到款或者收到金额不符款项，请务放行，
+          有任何问题请及时联系客服处理。
+        </p>
+        <p
+          class="vui-color--danger"
+          style="text-indent: 40px;line-height: 36px"
+        >
+          例如：付款方会更改自己的昵称，**通过扫码向你付款5000.00元，来迷惑收款方，其实付款方只付款了0.1元，
+          已经有多名币商被骗，请一定要谨慎操作
+        </p>
+        <p
+          class="vui-color--danger"
+          style="text-indent: 20px;line-height: 36px"
+        >
+          二、自己不认真核对金额造成损失的，损失由自己承担。
+        </p>
+        <p
+          class="vui-color--danger"
+          style="text-indent: 20px;line-height: 36px"
+        >
+          三、请谨慎放行，确认收到款项再放行，确认收到款项再放行，确认收到款项再放行。
+        </p>
+      </div>
+      <P style="color:red;font-weight: bold;">
+        <Input
+          type="password"
+          v-model="withdraw.value"
+          placeholder="请输入资金交易密码"
+          autocomplete="off"
+        ></Input>
+      </P>
+    </Modal>
     <Modal
       v-model="withdraw.modal"
       title="提示"
@@ -508,6 +589,7 @@ export default {
       :mask-closable="false"
       class="ivu-modal--left"
       width="400px"
+      v-if="false"
     >
       <div class="">
         <div class="vui-margin-bottom">

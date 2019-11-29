@@ -624,7 +624,6 @@ export default {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border: 1px solid #27313e;
-  width: 95%;
   margin: 0 auto;
   position: relative;
   min-height: 650px;

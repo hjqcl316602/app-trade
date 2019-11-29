@@ -144,7 +144,7 @@
                     </Button>
                   </div>
                   <div v-show="statusBtn == 2 && tradeType == 1">
-                    <Button type="warning" @click="modal5 = true">
+                    <Button type="warning" @click="beforeRelease">
                       确认放行
                     </Button>
                     <Button @click="beforeAppear" type="error">订单申诉</Button>
@@ -177,6 +177,24 @@
             <Row>
               <i-col span="6">
                 <div class="vui-margin-bottom--large">
+                  <span class="vui-font-weight--bold">
+                    <span class="vui-color--primary" style="font-size: 24px">
+                      {{ msg.amount }}
+                    </span>
+                    {{ msg.unit }}
+                  </span>
+
+                  <span>  |  </span>
+
+                  <span class="vui-font-weight--bold">
+                    <span class="vui-color--primary" style="font-size: 24px">
+                      {{ msg.money }}
+                    </span>
+                    CNY
+                  </span>
+
+                </div>
+                <div class="vui-margin-bottom--large">
                   <Row>
                     <i-col span="8">
                       <div class="vui-text-align--right">
@@ -185,9 +203,9 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
-                          msg.orderSn
-                        }}</span>
+                        <span class="vui-font-weight--bold">
+                          {{ msg.orderSn }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -250,9 +268,9 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
-                          msg.createTime
-                        }}</span>
+                        <span class="vui-font-weight--bold">
+                          {{ msg.createTime }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -267,9 +285,9 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold">{{
-                          msg.otherSide
-                        }}</span>
+                        <span class="vui-font-weight--bold">
+                          {{ msg.otherSide }}
+                        </span>
                       </div>
                     </i-col>
                   </Row>
@@ -279,51 +297,21 @@
                   <Row>
                     <i-col span="8">
                       <div class="vui-text-align--right">
-                        <span class="">交易价格：</span>
+                        <span class="">交易价格 | CNY：</span>
                       </div>
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
                         <span class="vui-font-weight--bold"
-                          >{{ msg.price }} CNY</span
+                          >
+                          {{ msg.price }}
+                        </span
                         >
                       </div>
                     </i-col>
                   </Row>
                 </div>
 
-                <div class="vui-margin-bottom--large">
-                  <Row>
-                    <i-col span="8">
-                      <div class="vui-text-align--right">
-                        <span class="">交易数量：</span>
-                      </div>
-                    </i-col>
-                    <i-col span="16">
-                      <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold"
-                          >{{ msg.amount }} {{ msg.unit }}</span
-                        >
-                      </div>
-                    </i-col>
-                  </Row>
-                </div>
-                <div class="vui-margin-bottom--large">
-                  <Row>
-                    <i-col span="8">
-                      <div class="vui-text-align--right">
-                        <span class="">交易金额：</span>
-                      </div>
-                    </i-col>
-                    <i-col span="16">
-                      <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold"
-                          >{{ msg.money }} CNY</span
-                        >
-                      </div>
-                    </i-col>
-                  </Row>
-                </div>
 
                 <div class="vui-margin-bottom--large">
                   <Row>
@@ -396,7 +384,7 @@
                   <Row>
                     <i-col span="8">
                       <div class="vui-text-align--right">
-                        <span class="">转账金额：</span>
+                        <span class="">转账数量 | TTM：</span>
                       </div>
                     </i-col>
                     <i-col span="16">
@@ -426,7 +414,56 @@
                 </div>
               </i-col>
               <i-col span="18">
-                <div>
+                <div class="vui-margin-bottom--large">
+                  <template v-if="payStatus.bank">
+                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
+                      <i class="icons is-icons--large bankfor vui-margin-right"></i>
+                      <span class="vui-margin-right" style="font-size: 24px">
+                        {{  bankInfo.bankRealName || "--" }}
+                      </span>
+                      <i-button type="default" @click="showQRCode(3)">预览</i-button>
+                    </div>
+                  </template>
+                  <template v-if="payStatus.wx">
+                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
+                      <i class="icons is-icons--large wechat vui-margin-right"></i>
+                      <span class="vui-margin-right" style="font-size: 24px">
+                        {{  wechatPay.wechat || "--" }}
+                      </span>
+                      <i-button type="default" @click="showQRCode(2)">预览</i-button>
+                    </div>
+                  </template>
+                  <template v-if="payStatus.ali">
+                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
+                      <i class="icons is-icons--large alipay vui-margin-right"></i>
+                      <span class="vui-margin-right" style="font-size: 24px">
+                        {{  alipay.alipayRealName || '--' }}
+                      </span>
+                      <i-button type="default" @click="showQRCode(1)">预览</i-button>
+                    </div>
+                  </template>
+                  <template v-if="payStatus.unionpay">
+                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
+                      <i class="icons is-icons--large unionpay vui-margin-right"></i>
+                      <span class="vui-margin-right" style="font-size: 24px">
+                        {{  unionpay.unionpay || "--" }}
+                      </span>
+                      <i-button type="default" @click="showQRCode(4)">预览</i-button>
+                    </div>
+                  </template>
+                  <template v-if="payStatus.aggregate">
+                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
+                      <i class="icons is-icons--large polymer vui-margin-right"></i>
+                      <span class="vui-margin-right" style="font-size: 24px">
+                        {{  aggregate.aggregate || "--" }}
+                      </span>
+                      <i-button type="default" @click="showQRCode(5)">预览</i-button>
+                    </div>
+                  </template>
+
+                </div>
+                <div v-if="false">
+
                   <Row class="vui-padding--large" type="flex" justify="center">
                     <i-col span="6" class="order-info" v-if="payStatus.bank">
                       <i class="icons bankfor"></i>
@@ -551,14 +588,25 @@
     </Modal>
     <Modal
       v-model="modal5"
-      :title="$t('otc.chat.tip')"
-      @on-ok="ok5"
-      :mask-closable="false"
-      class="ivu-modal--left"
-      width="400px"
+      title="放行"
+      width="500px"
     >
+      <div slot="footer"  >
+        <i-button type="default" v-if="release.backtime">{{ release.backtime }}秒后操作</i-button>
+        <i-button type="primary" v-else @click="ok5">确认放行</i-button>
+      </div>
+      <div class="vui-margin-bottom">
+        <p class="vui-color--danger vui-font-weight--bold">温馨提示</p>
+        <p class="vui-color--danger" style="text-indent: 20px;line-height: 36px">一、最近骗子猖獗，请再次核对金额，金额正确才放行，没有收到款或者收到金额不符款项，请务放行，
+          有任何问题请及时联系客服处理。</p>
+        <p class="vui-color--danger" style="text-indent: 40px;line-height: 36px">例如：付款方会更改自己的昵称，**通过扫码向你付款5000.00元，来迷惑收款方，其实付款方只付款了0.1元，
+          已经有多名币商被骗，请一定要谨慎操作</p>
+        <p class="vui-color--danger" style="text-indent: 20px;line-height: 36px">二、自己不认真核对金额造成损失的，损失由自己承担。</p>
+        <p class="vui-color--danger" style="text-indent: 20px;line-height: 36px">三、请谨慎放行，确认收到款项再放行，确认收到款项再放行，确认收到款项再放行。</p>
+
+      </div>
       <P style="color:red;font-weight: bold;">
-        {{ $t("otc.chat.msg6") }}<br />
+
         <Input
           type="password"
           v-model="fundpwd"
@@ -577,11 +625,18 @@
     <Modal
       v-model="tranfer.open"
       :title="'转账给' + tranfer.otherSide"
-      @on-ok="handlerTranfer"
       :mask-closable="false"
       class="ivu-modal--left"
       width="400px"
     >
+      <div slot="footer">
+        <i-button
+          type="primary"
+          :disabled="tranfer.loading"
+          @click="handlerTranfer"
+          >确定</i-button
+        >
+      </div>
       <Input
         type="password"
         v-model="fundpwd"
@@ -595,15 +650,15 @@
           <span class="vui-color--danger vui-font-weight--bold">温馨提示</span>
         </div>
         <div style="line-height: 32px;">
-          <span  > 当前可用数量 | {{ msg.unit }}： </span>
-          <span  class="vui-color--danger">
+          <span> 当前可用数量 | {{ msg.unit }}： </span>
+          <span class="vui-color--danger">
             {{ tranfer.balance }}
           </span>
         </div>
         <div style="line-height: 32px">
           <span>计算格式：</span>
           <span class="vui-color--danger">
-            数量 = 金额 / 单价、 1 {{msg.unit}} = 1 CNY/ {{ msg.price }} CNY
+            数量 = 金额 / 单价、 1 {{ msg.unit }} = 1 CNY/ {{ msg.price }} CNY
           </span>
         </div>
       </div>
@@ -748,6 +803,7 @@ export default {
         aggregate: false
       },
       tranfer: {
+        loading: false,
         open: false,
         number: null,
         orderSn: "",
@@ -760,7 +816,11 @@ export default {
         orderSn: "",
         type: "",
         showBtn: false
-      }
+      },
+        release:{
+          timer:null,
+            backtime:0
+        }
     };
   },
 
@@ -768,7 +828,14 @@ export default {
     this.init();
   },
   computed: {},
-
+  watch:{
+      modal5(){
+          this.fundpwd = ""
+      },
+      ['tranfer.open'](){
+          this.tranfer.jyPassword = ""
+      }
+  },
   methods: {
     init() {
       this.params.orderSn = this.$route.query["orderSn"];
@@ -870,10 +937,12 @@ export default {
      */
 
     handlerTranfer: function() {
-      if (this.tranfer.number <= 0)
-        return this.$Message.warning("请输入合法的数量！");
-      if (!this.tranfer.jyPassword)
-        return this.$Message.warning("请输入您的资金密码！");
+        if (this.tranfer.number <= 0)
+            return this.$Message.warning("请输入合法的数量！");
+        if (!this.tranfer.jyPassword)
+            return this.$Message.warning("请输入您的资金密码！");
+      if (this.tranfer.loading) this.$Message.warning("正在转账中...");
+      this.tranfer.loading = true;
 
       this.$http
         .post(this.host + "/otc/order/directTransfer", {
@@ -881,20 +950,17 @@ export default {
           jyPassword: this.tranfer.jyPassword,
           orderSn: this.tranfer.orderSn
         })
-        .then(
-          response => {
-            let data = response["body"];
-            if (data["code"] === 0) {
-              this.tranfer.number = 0;
-              this.$Message.success("转账成功！");
-            } else {
-              this.$Message.warning(data.message);
-            }
-          },
-          () => {
-            this.$Message.warning("抱歉，转账失败！");
+        .then(response => {
+          this.tranfer.loading = false;
+          this.tranfer.open = false;
+          let data = response["body"];
+          if (data["code"] === 0) {
+            this.tranfer.number = 0;
+            this.$Message.success("转账成功！");
+          } else {
+            this.$Message.warning(data.message);
           }
-        );
+        });
     },
 
     /**
@@ -939,6 +1005,27 @@ export default {
           else this.$Message.error(resp.message);
         });
     },
+      /**
+       * 确认放行前
+       */
+      beforeRelease(){
+          this.modal5 = true;
+          this.release.backtime = 5;
+          this.setReleaseTimer()
+      },
+      setReleaseTimer(){
+          this.clearReleaseTimer()
+          this.release.timer = setInterval(()=>{
+              this.release.backtime--;
+              if(this.release.backtime===0){
+                  this.clearReleaseTimer()
+              }
+          },1000)
+      },
+      clearReleaseTimer(){
+        clearInterval(this.release.timer)
+        this.release.timer = null
+      },
 
     ok1() {
       this.$http
@@ -1008,6 +1095,7 @@ export default {
         .then(response => {
           var resp = response.body;
           if (resp.code == 0) {
+              this.modal5 = false
             this.$Message.success(resp.message);
             //this.sendOrderStatusNotice(5);
             this.getDetail();
@@ -1139,6 +1227,7 @@ export default {
       clearInterval(this._backTimer);
       this._backTimer = null;
     },
+
     /**
      * 获取倒计时
      */
@@ -1341,7 +1430,10 @@ export default {
   background-size: 100% 100%;
   vertical-align: middle;
 }
-
+.icons.is-icons--large{
+  height: 28px;
+  width: 28px;
+}
 .bankfor {
   background-image: url(../../assets/img/bankcard.png);
 }
