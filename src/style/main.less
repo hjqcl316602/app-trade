@@ -1,0 +1,44 @@
+@import "../../package/css/main/index";
+
+.vi-background.is-background--light-black{
+  background-color: #192330;
+}
+.vi-border.is-border--white:after {
+  border-color: #fff;
+}
+.vi-border.is-border--primary:after {
+  border-color: @color-primary;
+}
+.vi-chat-body{
+  background: transparent;
+}
+
+.vi-chat-row.is-row--left .vi-chat-message {
+  background: @color-danger;
+}
+.vi-chat-row.is-row--right .vi-chat-message {
+  background: @color-primary;
+}
+
+.vi-chat-row.is-row--left .vi-chat-arrow {
+  left: -12px;
+  border-color: transparent @color-danger transparent transparent;
+}
+.vi-chat-row.is-row--right .vi-chat-arrow {
+  right: -12px;
+  border-color: transparent transparent transparent @color-primary;
+}
+
+@font-face {
+  font-family: "icon-font";
+  src: url("./icon-font/iconfont.ttf");
+}
+.vi-icon {
+  font-family: "icon-font";
+  font-size: @root-font-size;
+  font-style: normal;
+  font-weight: normal;
+  display: inline;
+}
+
+@color-primary:#f0a70a;

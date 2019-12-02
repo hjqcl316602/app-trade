@@ -1,0 +1,18 @@
+@import "../../css/theme.less";
+
+.vui-confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  right: 0;
+  background-color: #fff;
+  transform: translateY(-120%);
+  transition: transform 0.3s linear;
+  margin: @margin-medium;
+  border-radius: @border-radius-small;
+}
+
+.vui-confirm.is-confirm--show {
+  transform: translateY(0);
+}

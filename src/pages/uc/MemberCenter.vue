@@ -184,9 +184,11 @@
               <span class="isclick"></span>
               <span class="content">法币管理</span>
             </template>
-            <MenuItem name="4-1">
-              <router-link to="/uc/ad">我的广告</router-link>
-            </MenuItem>
+            <template v-if="member.channelFlag === 0 ">
+              <MenuItem name="4-1">
+                <router-link to="/uc/ad">我的广告</router-link>
+              </MenuItem>
+            </template>
             <MenuItem name="4-2">
               <router-link to="/uc/order">我的订单</router-link>
             </MenuItem>
@@ -196,11 +198,16 @@
             <!--<MenuItem name="4-4">-->
               <!--<router-link to="/uc/order/recharge">买入订单</router-link>-->
             <!--</MenuItem>-->
-            <MenuItem name="4-5">
-              <router-link to="/uc/order/recharge-withdraw"
-                >未完成订单</router-link
-              >
-            </MenuItem>
+            <template v-if="member.channelFlag === 0">
+              <MenuItem name="4-5" >
+                <router-link to="/uc/order/recharge-withdraw"
+                >
+                  未完成订单
+                </router-link
+                >
+              </MenuItem>
+            </template>
+
             <!--<MenuItem name="4-6">-->
               <!--<router-link to="/uc/order/custom">申诉订单</router-link>-->
             <!--</MenuItem>-->
@@ -218,6 +225,7 @@
             </MenuItem>
           </Submenu>
         </Menu>
+
         <router-view></router-view>
       </div>
     </div>
@@ -263,6 +271,14 @@ export default {
       }
     };
   },
+
+    computed:{
+        member: function () {
+            //console.log(this.$store.state)
+            return this.$store.getters.member;
+        },
+    },
+
   created: function() {
     this.init();
     const path = this.$route.path;

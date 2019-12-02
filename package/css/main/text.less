@@ -1,0 +1,333 @@
+@import "../theme.less";
+
+/**
+* 文本
+*/
+//   // color          : #000;
+//   // font-size      : 100%;
+//   // font-family    : inherit;
+//   // font-style     : normal;
+//   // font-variant   : normal;
+//   // font-weight    : normal;
+//   // direction      : ltr;
+//   // letter-spacing : normal;
+//   // line-height    : normal;
+//   // text-align     : left;
+//   // text-decoration: none;
+//   // text-indent    : 0;
+//   // text-transform : none;
+//   // word-spacing   : normal;
+//   // word-break     : normal;
+//   // word-wrap      : normal;
+
+/**
+* 文本的字体颜色
+*/
+.vi-text.is-color--primary {
+  color: @color-primary;
+}
+
+.vi-text.is-color--warning {
+  color: @color-warning;
+}
+
+.vi-text.is-color--danger {
+  color: @color-danger;
+}
+
+.vi-text.is-color--success {
+  color: @color-success;
+}
+.vi-text.is-color--dark {
+  color: @color-dark;
+}
+
+.vi-text.is-color--light {
+  color: @color-light;
+}
+
+.vi-text.is-color--gray {
+  color: @color-gray;
+}
+
+.vi-text.is-color--black {
+  color: @color-black;
+}
+
+.vi-text.is-color--white {
+  color: @color-white;
+}
+
+/**
+* 文本的字体大小
+*/
+.vi-text.is-size--none {
+  font-size: 0;
+}
+
+.vi-text.is-size--smaller {
+  font-size: @text-size-smaller;
+}
+
+.vi-text.is-size--small {
+  font-size: @text-size-small;
+}
+
+.vi-text.is-size--medium {
+  font-size: @text-size-medium;
+}
+
+.vi-text.is-size--large {
+  font-size: @text-size-large;
+}
+
+.vi-text.is-size--larger {
+  font-size: @text-size-larger;
+}
+
+/**
+* 文本的样式
+*/
+.vi-text.is-style--italic {
+  font-style: italic;
+}
+
+.vi-text.is-style--oblique {
+  font-style: oblique;
+}
+
+/**
+* 文本的字体粗细
+*/
+
+.vi-text.is-weight--bold {
+  font-weight: bold;
+}
+
+.vi-text.is-weight--bolder {
+  font-weight: bolder;
+}
+
+.vi-text.is-weight--lighter {
+  font-weight: lighter;
+}
+
+/**
+* 规定文本的方向 / 书写方向
+*/
+.vi-text.is-direction--ltr {
+  direction: ltr;
+}
+
+.vi-text.is-direction--rtl {
+  direction: rtl;
+}
+
+/**
+* 文本字符间距
+*/
+.vi-text.is-letter-spacing--smaller {
+  letter-spacing: @text-letter-spacing-smaller;
+}
+
+.vi-text.is-letter-spacing--small {
+  letter-spacing: @text-letter-spacing-small;
+}
+
+.vi-text.is-letter-spacing--medium {
+  letter-spacing: @text-letter-spacing-medium;
+}
+
+.vi-text.is-letter-spacing--large {
+  letter-spacing: @text-letter-spacing-large;
+}
+
+.vi-text.is-letter-spacing--larger {
+  letter-spacing: @text-letter-spacing-larger;
+}
+
+/**
+* 文本的行高
+* 需要文本在块级元素中才起作用的
+* 文本是行内元素则有默认的行高，不在自身元素起作用，而所占空间是该值大小
+*/
+
+.vi-text.is-height--smaller {
+  line-height: @text-height-smaller;
+}
+
+.vi-text.is-height--small {
+  line-height: @text-height-small;
+}
+
+.vi-text.is-height--medium {
+  line-height: @text-height-medium;
+}
+
+.vi-text.is-height--large {
+  line-height: @text-height-large;
+}
+
+.vi-text.is-height--larger {
+  line-height: @text-height-larger;
+}
+
+/**
+* 文本的字体对齐方式
+*/
+.vi-text.is-align--left {
+  text-align: left;
+}
+
+.vi-text.is-align--center {
+  text-align: center;
+}
+
+.vi-text.is-align--right {
+  text-align: right;
+}
+
+.vi-text.is-align--justify {
+  text-align: justify;
+}
+
+/**
+* 文本decoration,规定添加到文本的装饰效果
+*/
+.vi-text.is-decoration--none {
+  text-decoration: none;
+}
+
+.vi-text.is-decoration--underline {
+  text-decoration: underline;
+}
+
+.vi-text.is-decoration--overline {
+  text-decoration: overline;
+}
+
+.vi-text.is-decoration--line-through {
+  text-decoration: line-through;
+}
+
+.vi-text.is-decoration--blink {
+  text-decoration: blink;
+}
+
+/**
+* 文本首行的缩进
+*/
+.vi-text.is-indent--none {
+  text-indent: 0;
+}
+
+.vi-text.is-indent--smaller {
+  text-indent: @text-indent-smaller;
+}
+
+.vi-text.is-indent--small {
+  text-indent: @text-indent-small;
+}
+
+.vi-text.is-indent--medium {
+  text-indent: @text-indent-medium;
+}
+
+.vi-text.is-indent--large {
+  text-indent: @text-indent-large;
+}
+
+.vi-text.is-indent--larger {
+  text-indent: @text-indent-larger;
+}
+
+/**
+* 文本 大小写的转换
+*/
+.vi-text.is-transform--none {
+  text-transform: none;
+}
+
+.vi-text.is-transform--capitalize {
+  text-transform: capitalize;
+}
+
+.vi-text.is-transform--lowercase {
+  text-transform: lowercase;
+}
+
+.vi-text.is-transform--uppercase {
+  text-transform: uppercase;
+}
+
+/**
+* 文本单词之间的间距
+*/
+.vi-text.is-word-spacing--normal {
+  word-spacing: normal;
+}
+
+.vi-text.is-word-spacing--smaller {
+  word-spacing: @text-word-spacing-smaller;
+}
+
+.vi-text.is-word-spacing--small {
+  word-spacing: @text-word-spacing-small;
+}
+
+.vi-text.is-word-spacing--medium {
+  word-spacing: @text-word-spacing-medium;
+}
+
+.vi-text.is-word-spacing--large {
+  word-spacing: @text-word-spacing-large;
+}
+
+.vi-text.is-word-spacing--larger {
+  word-spacing: @text-word-spacing-larger;
+}
+
+/**
+* 文本 恰当的断字点进行换行
+*/
+
+.vi-text.is-word-break--normal {
+  word-break: normal;
+}
+
+.vi-text.is-word-break--break-all {
+  word-break: break-all;
+}
+
+.vi-text.is-word-break--keep-all {
+  word-break: keep-all;
+}
+
+/**
+* 文本 允许长单词换行到下一行
+*/
+.vi-text.is-word-wrap--normal {
+  word-wrap: normal;
+}
+
+.vi-text.is-word-wrap--break {
+  word-wrap: break-word;
+}
+
+/**
+* 文本的截取
+*/
+
+.vi-text.is-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vi-text.is-clamp {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-emphasis: none;
+}

@@ -15,11 +15,17 @@ import VueRouter from "vue-router";
 import VueQriously from "vue-qriously";
 import vueResource from "vue-resource";
 import VueI18n from "vue-i18n";
+import util from "./assets/js/util.js"; //乘除方法
+/********************************************** 组件-样式***************************************************/
 import iView from "iview";
 import "iview/dist/styles/iview.css";
-import util from "./assets/js/util.js"; //乘除方法
 import "./assets/css/index.less"; // store-css-basis，以及一些ivew的重置和添加
+import './style/main.less';
+import './style/app.less';
+
+
 import App from "./App"; // 必须要放在css的引用之后，否则页面样式有些不生效
+
 
 /**********************************************配置***************************************************/
 import "./config/mixins.methods";

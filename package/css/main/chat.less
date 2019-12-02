@@ -1,0 +1,84 @@
+// 页面 - 申诉详情 - 主要样式
+@import "../theme";
+.vi-chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.vi-chat-body {
+  flex: 1;
+  background: #f0f0f0;
+  overflow-y: scroll;
+  padding: @padding-medium;
+}
+.vi-chat-footer,
+.vi-chat-content {
+  width: 100%;
+}
+
+.vi-chat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: @margin-medium;
+}
+.vi-chat-tag {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+}
+
+.vi-chat-content {
+  flex: 1;
+  position: relative;
+  display: flex;
+}
+.vi-chat-message {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: @padding-medium;
+}
+
+.vi-chat-arrow {
+  display: inline-block;
+  height: 0;
+  width: 0;
+  font-size: 0;
+  border-width: 6px;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.vi-chat-row.is-row--left .vi-chat-tag {
+  background-color: @color-danger;
+}
+.vi-chat-row.is-row--right .vi-chat-tag {
+  background-color: @color-warning;
+}
+
+.vi-chat-row.is-row--left .vi-chat-content {
+  margin-right: 40px;
+  margin-left: 8px;
+  justify-content: flex-start;
+}
+.vi-chat-row.is-row--right .vi-chat-content {
+  margin-right: 8px;
+  margin-left: 40px;
+  justify-content: flex-end;
+}
+
+.vi-chat-row.is-row--left .vi-chat-message {
+}
+.vi-chat-row.is-row--right .vi-chat-message {
+}
+
+.vi-chat-row.is-row--left .vi-chat-arrow {
+  left: -12px;
+  border-color: transparent #fff transparent transparent;
+}
+.vi-chat-row.is-row--right .vi-chat-arrow {
+  right: -12px;
+  border-color: transparent transparent transparent #fff;
+}

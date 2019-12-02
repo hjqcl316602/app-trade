@@ -14,7 +14,12 @@ export default {
   data() {
     return {
       loading: false,
-      tableDatas: [],
+      content: {
+        scanOrders: [],
+        payModeData: {},
+        sort: []
+      },
+
       payTypeModal: false,
       loadingTimer: null,
       loadingTimerDuration: 5 * 1000,
@@ -43,6 +48,10 @@ export default {
         src: audio,
         open:
           localStorage.getItem("order/withdraw/audio/open/status") === "open"
+      },
+      online: {
+        timer: null,
+        backtime: 0
       }
     };
   },
@@ -334,7 +343,7 @@ export default {
             var resp = response.body;
             if (resp.code == 0) {
               this.$Message.success(resp.message);
-              this.withdraw.modal = false
+              this.withdraw.modal = false;
               this.initPage();
             } else {
               this.$Message.error(resp.message);
@@ -431,54 +440,53 @@ export default {
       this.loading = loading; // 是否显示加载动画
       this.$http
         .post(this.host + "/otc/order/goToPayOrConfirm")
-        .then(response => {
-          let resp = response.body;
-          if (resp.code === 0 && resp.data) {
-            let resList = resp.data;
-            let newRes = [];
-            resList.forEach(ele => {
-              newRes.push(Object.assign(ele, { orderType: "sellBuy" }));
+        .then(({ body }) => {
+          this.loading = false;
+          let { code, data, message } = body;
+          if (code === 0 && data) {
+            let { scanOrders, payModeData, sort, appealOrders } = data;
+            let newOrders = [];
+            scanOrders.forEach(ele => {
+              newOrders.push(Object.assign(ele, { orderType: "sellBuy" }));
             });
-            this.tableDatas = newRes;
-            this.getCostomer();
+            appealOrders.forEach(ele => {
+              newOrders.push(Object.assign(ele, { orderType: "customer" }));
+            });
+            this.content.scanOrders = newOrders;
+            this.content.sort = sort;
+            let newPayModeData = [];
+            let keys = Object.keys(payModeData);
+            keys.forEach(key => {
+              newPayModeData.push({
+                text: key,
+                value: payModeData[key]
+              });
+            });
+            this.content.payModeData = newPayModeData;
+            console.log(this.content);
+            //this.getCostomer();
           } else {
-            this.$Message.error(resp.message);
+            this.loading = false;
+            this.$Message.error(message);
           }
         });
     },
     getCostomer() {
-      this.$http.post(this.host + "/otc/order/appealOrder").then(response => {
-        let resp = response.body;
-        if (resp.code === 0 && resp.data) {
-          let resList = resp.data;
-          let newRes = [];
-          resList.forEach(ele => {
-            newRes.push(Object.assign(ele, { orderType: "customer" }));
-          });
-          this.tableDatas = this.tableDatas.concat(newRes);
-          console.log(this.tableDatas);
-        } else {
-          this.$Message.error(resp.message);
-        }
-        this.loading = false;
-      });
-    },
-
-    /**
-     * 判断数组，后面数组是否有数据添加
-     */
-
-    isEmergeNewOrder() {
-      let id = 0; // 订单最新的唯一id，用于判断是否有新的数据的添加
-      this.tableDatas.forEach(element => {
-        id = Math.max(id, element["orderId"]);
-      });
-      let newOrderUniqueId =
-        localStorage.getItem("order/rechage-withdraw/new/unique/id") || 0;
-      localStorage.setItem("order/rechage-withdraw/new/unique/id", id);
-      if (newOrderUniqueId < id) {
-        this.audio.open && this.playAudio();
-      }
+      // this.$http.post(this.host + "/otc/order/appealOrder").then(response => {
+      //   let resp = response.body;
+      //   if (resp.code === 0 && resp.data) {
+      //     let resList = resp.data;
+      //     let newRes = [];
+      //     resList.forEach(ele => {
+      //       newRes.push(Object.assign(ele, { orderType: "customer" }));
+      //     });
+      //     this.tableDatas = this.tableDatas.concat(newRes);
+      //     console.log(this.tableDatas);
+      //   } else {
+      //     this.$Message.error(resp.message);
+      //   }
+      //   this.loading = false;
+      // });
     },
 
     /**
@@ -488,6 +496,68 @@ export default {
     playAudio: function() {
       var audio = document.getElementById("noticeMusic");
       if (audio !== null) audio.play();
+    },
+    /**
+     * 抢单
+     */
+    setOnline() {
+      this.$http.post(this.host + "/uc/member/online").then(({ body }) => {
+        console.log(body);
+        let { code ,data,message } = body ;
+        if( code === 0 ){
+            this.getOrder();
+            this.setOnlineTimer();
+        }  else  this.$Message.error(message)
+      });
+    },
+    setOnlineTimer() {
+      this.clearOnlineTimer();
+      this.online.backtime = 5 * 60 * 1000;
+      this.online.timer = setInterval(() => {
+        this.online.backtime -= 1000;
+        if (this.online.backtime === 0) {
+          this.clearOnlineTimer();
+        }
+      }, 1000);
+    },
+    clearOnlineTimer() {
+      clearInterval(this.online.timer);
+      this.online.timer = null;
+    },
+      /**
+       * 格式化时间
+       */
+    formatTime(times) {
+      let hour = 1000 * 60 * 60;
+
+      let minute = 1000 * 60;
+
+      let second = 1000;
+
+      let hours = Math.floor(times / hour);
+
+      let minutes = Math.floor((times - hours * hour) / minute);
+
+      let seconds = Math.floor(
+        (times - hours * hour - minutes * minute) / second
+      );
+
+      //console.log(hours, minutes, seconds);
+      function getZero(time) {
+        return Number(time) > 9 ? time : "0" + time;
+      }
+      if (hours > 0) {
+        return `${hours}时${getZero(minutes)}分${getZero(seconds)}秒`;
+      }
+
+      if (minutes > 0) {
+        return `${getZero(minutes)}分${getZero(seconds)}秒`;
+      }
+
+      if (seconds > 0) {
+        return `${getZero(seconds)}秒`;
+      }
+      return 0;
     }
   },
   watch: {
@@ -497,9 +567,9 @@ export default {
         val ? "open" : "close"
       );
     },
-      ['withdraw.modal'](){
-          this.withdraw.value = ''
-      }
+    ["withdraw.modal"]() {
+      this.withdraw.value = "";
+    }
   },
   beforeDestroy() {
     this.clearLoadingTimer();
@@ -522,19 +592,104 @@ export default {
       </audio>
     </template>
 
-    <div class="nav-right">
-      <div class="bill_box_order">
-        <div>
+    <template v-if="content.payModeData.length > 0">
+      <div style="line-height: 36px">
+        <div class=" ">
+          <span class="vi-text is-weight--bold" style="font-size: 16px"
+            >接单中</span
+          >
+        </div>
+        <div class=" vi-padding-left is-padding-left--larger">
+          <div class="vi-flex">
+            <div
+              v-for="(item, index) in content.payModeData"
+              class="vi-margin-right is-margin-right--larger"
+            >
+              <span class="vi-text is-weight--bold">{{ item.text }}：</span>
+              <span class="vi-text is-color--primary" style="font-size: 24px">
+                {{ item.value }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-if="content.sort.length > 0">
+      <div style="line-height: 36px" class="vi-margin-top">
+        <div class="">
+          <span class="vi-text is-weight--bold" style="font-size: 16px">
+            我的广告
+          </span>
+        </div>
+        <div class="vi-padding-left is-padding-left--larger">
+          <div v-for="(item, index) in content.sort" class="vi-flex">
+            <div class="vi-margin-right is-margin-right--larger">
+              <span class=" vi-text is-weight--bold">
+                类型：
+              </span>
+              <span class="vi-text  ">
+                {{ item.advertiseType === 1 ? "在线出售" : "在线够买" }}
+              </span>
+            </div>
+            <div class="vi-margin-right is-margin-right--larger">
+              <span class=" vi-text is-weight--bold">
+                方式：
+              </span>
+              <span class="vi-text ">
+                {{ item.payMode }}
+              </span>
+            </div>
+            <div class="vi-margin-right is-margin-right--larger">
+              <span class=" vi-text is-weight--bold">
+                剩余数量：
+              </span>
+              <span class="vi-text  "> {{ item.remainAmount }} TTM </span>
+            </div>
+            <div class="vi-margin-right is-margin-right--larger">
+              <span class=" vi-text is-weight--bold">
+                排队号：
+              </span>
+              <span class="vi-text is-color--primary" style="font-size: 24px">
+                {{ item.sortOrder }}
+              </span>
+            </div>
+            <div class="vi-margin-right is-margin-right--larger">
+              <span class=" vi-text is-weight--bold">
+                抢单号：
+              </span>
+              <span class="vi-text is-color--primary" style="font-size: 24px">
+                {{ item.pickOrder || "--" }}
+              </span>
+            </div>
+          </div>
+          <div>
+            <i-button size="large" long type="primary" @click="setOnline" v-if="online.backtime === 0 ">
+              抢单
+            </i-button>
+            <i-button size="large" long type="default" v-else  disabled   >{{ formatTime(online.backtime) }}后操作</i-button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template v-if="content.scanOrders.length > 0">
+      <div class="vi-margin-top">
+        <div class="" style="line-height: 32px">
+          <span class="vi-text is-weight--bold" style="font-size: 16px">
+            我的订单
+          </span>
+        </div>
+        <div class="vi-padding-left is-padding-left--larger">
           <Table
             no-data-text="暂无订单"
             :columns="tableColumns"
-            :data="tableDatas"
+            :data="content.scanOrders"
             :loading="loading"
             :disabled-hover="true"
           ></Table>
         </div>
       </div>
-    </div>
+    </template>
     <Modal v-model="withdraw.modal" title="放行提示" width="500px">
       <div slot="footer">
         <i-button type="default" v-if="withdraw.backtime"

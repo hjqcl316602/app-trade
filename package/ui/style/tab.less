@@ -1,0 +1,32 @@
+.vui-tab-wrap {
+  overflow: hidden;
+  user-select: none
+}
+
+
+.vui-tab-wrap .vui-tab-group {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.vui-tab-wrap .vui-tab {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.vui-tab-wrap .vui-tab-bar {
+  width: 100px;
+  height: 2px;
+  background-color: #39f;
+  border-radius: 2px;
+  transform: translateX(0)
+}
+
+.vui-tab-wrap .vui-tab-group.vui-tab-group--transition {
+  transition: transform .3s ease-in-out
+}
+
+.vui-tab-wrap .vui-tab-bar.vui-tab-bar--transition {
+  transition: transform .3s linear
+}

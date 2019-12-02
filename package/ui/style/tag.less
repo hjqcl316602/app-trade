@@ -1,0 +1,79 @@
+@import "../../css/theme.less";
+
+.vui-tag {
+  display: inline-block;
+  position: relative;
+}
+
+.vui-tag .vui-tag--label {
+  position: absolute;
+  display: inline-block;
+}
+
+.vui-tag .vui-tag--label.vui-tag--top-right {
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+
+.vui-tag .vui-tag--label.vui-tag--top-left {
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.vui-tag .vui-tag--label.vui-tag--bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+.vui-tag .vui-tag--label.vui-tag--bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+
+.vui-tag .vui-tag--label.vui-tag--top-center {
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.vui-tag .vui-tag--label.vui-tag--bottom-center {
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+}
+
+.vui-tag .vui-tag--label.vui-tag--left-center {
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vui-tag .vui-tag--label.vui-tag--right-center {
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.vui-tag .vui-tag--message {
+  border: 1px solid #fff;
+  border-radius: 16px;
+  line-height: 14px;
+  font-size: 12px;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 0 3px;
+  text-align: center;
+  background-color: @color-danger;
+  min-width: 16px;
+  max-width: 32px;
+  font-weight: 800;
+  transform-origin: 100%;
+  font-style: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

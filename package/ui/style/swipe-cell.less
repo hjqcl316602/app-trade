@@ -1,0 +1,24 @@
+.vui-swipe-cell {
+  position: relative;
+  overflow: hidden;
+}
+// 必须要加一层，否则出现一些奇怪的现象，transform 和 position之间有一定爱恨情仇
+.vui-swipe-cell-wrapper {
+}
+.vui-swipe-cell-wrapper.is-swipe-cell--animate {
+  transition: transform 0.3s ease-in-out;
+}
+.vui-swipe-cell .vui-swipe-cell-right,
+.vui-swipe-cell .vui-swipe-cell-left {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+.vui-swipe-cell .vui-swipe-cell-right {
+  transform: translate3d(100%, 0, 0);
+  right: 0;
+}
+.vui-swipe-cell .vui-swipe-cell-left {
+  transform: translate3d(-100%, 0, 0);
+  left: 0;
+}

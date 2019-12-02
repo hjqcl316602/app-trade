@@ -1,0 +1,61 @@
+@import "../../css/theme.less";
+.vui-popup-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: @z-index-popup;
+}
+.vui-popup-wrap.is-popup--animate {
+  transition: transform 0.3s ease-in-out;
+}
+.vui-popup-wrap.is-popup--bottom {
+  transform: translateY(100%);
+}
+.vui-popup-wrap.is-popup--bottom.is-popup--animate-active {
+  transform: translateY(0);
+}
+.vui-popup-wrap.is-popup--top {
+  transform: translateY(-100%);
+}
+.vui-popup-wrap.is-popup--top.is-popup--animate-active {
+  transform: translateY(0);
+}
+.vui-popup-wrap.is-popup--left {
+  transform: translateX(-100%);
+}
+.vui-popup-wrap.is-popup--left.is-popup--animate-active {
+  transform: translateX(0);
+}
+.vui-popup-wrap.is-popup--right {
+  transform: translateX(100%);
+}
+.vui-popup-wrap.is-popup--right.is-popup--animate-active {
+  transform: translateX(0);
+}
+
+.vui-popup {
+  position: absolute;
+  background-color: @background-color-popup;
+}
+.vui-popup-wrap.is-popup--bottom .vui-popup {
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.vui-popup-wrap.is-popup--top .vui-popup {
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.vui-popup-wrap.is-popup--left .vui-popup {
+  left: 0;
+  bottom: 0;
+  top: 0;
+}
+.vui-popup-wrap.is-popup--right .vui-popup {
+  right: 0;
+  bottom: 0;
+  top: 0;
+}

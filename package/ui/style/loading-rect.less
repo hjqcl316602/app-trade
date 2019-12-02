@@ -1,0 +1,36 @@
+.vui-loading-rect {
+  position: relative;
+  display: inline-block
+}
+
+.vui-loading-rect .vui-loading-rect__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vui-loading-rect .vui-loading-rect__path {
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation-fill-mode: both;
+  animation-direction: normal;
+  animation-duration: 4s;
+  animation-play-state: running;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: loading-rect;
+}
+
+
+@keyframes loading-rect {
+
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -3200;
+  }
+}

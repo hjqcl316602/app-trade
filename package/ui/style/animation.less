@@ -1,0 +1,171 @@
+ .fade-leave-active {
+   animation-fill-mode: both;
+   animation-name: fadeOut;
+   animation-play-state: linear;
+   animation-duration: .3s;
+ }
+
+ .fade-enter-active {
+   animation-name: fadeIn;
+   animation-timing-function: linear;
+   animation-fill-mode: both;
+   animation-duration: .3s;
+ }
+
+ @keyframes fadeIn {
+   0% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 1;
+   }
+ }
+
+ @keyframes fadeOut {
+   0% {
+     opacity: 1;
+   }
+
+   100% {
+     opacity: 0;
+   }
+ }
+
+ .slide-left-leave-active {
+   animation-fill-mode: both;
+   animation-name: slideLeftOut;
+   animation-play-state: linear;
+   animation-duration: .3s;
+ }
+
+ .slide-left-enter-active {
+   animation-name: slideLeftIn;
+   animation-timing-function: linear;
+   animation-fill-mode: both;
+   animation-duration: .3s;
+ }
+
+
+ @keyframes slideLeftIn {
+   0% {
+     transform: translateX(-100%)
+   }
+
+   100% {
+     transform: translateX(0)
+   }
+ }
+
+ @keyframes slideLeftOut {
+   0% {
+     transform: translateX(0)
+   }
+
+   100% {
+     transform: translateX(-100%)
+   }
+ }
+
+ .slide-right-leave-active {
+   animation-fill-mode: both;
+   animation-name: slideRightOut;
+   animation-play-state: linear;
+   animation-duration: .3s;
+ }
+
+ .slide-right-enter-active {
+   animation-name: slideRightIn;
+   animation-timing-function: linear;
+   animation-fill-mode: both;
+   animation-duration: .3s;
+ }
+
+ @keyframes slideRightIn {
+   0% {
+     transform: translateX(100%)
+   }
+
+   100% {
+     transform: translateX(0)
+   }
+ }
+
+ @keyframes slideRightOut {
+   0% {
+     transform: translateX(0)
+   }
+
+   100% {
+     transform: translateX(100%)
+   }
+ }
+
+
+ .slide-top-leave-active {
+   animation-fill-mode: both;
+   animation-name: slideTopOut;
+   animation-play-state: linear;
+   animation-duration: .3s;
+ }
+
+ .slide-top-enter-active {
+   animation-name: slideTopIn;
+   animation-timing-function: linear;
+   animation-fill-mode: both;
+   animation-duration: .3s;
+ }
+
+ @keyframes slideTopIn {
+   0% {
+     transform: translateY(-100%)
+   }
+
+   100% {
+     transform: translateY(0)
+   }
+ }
+
+ @keyframes slideTopOut {
+   0% {
+     transform: translateY(0)
+   }
+
+   100% {
+     transform: translateY(-100%)
+   }
+ }
+
+ .slide-bottom-leave-active {
+   animation-fill-mode: both;
+   animation-name: slideBottomOut;
+   animation-play-state: linear;
+   animation-duration: .3s;
+ }
+
+ .slide-bottom-enter-active {
+   animation-name: slideBottomIn;
+   animation-timing-function: linear;
+   animation-fill-mode: both;
+   animation-duration: .3s;
+ }
+
+ @keyframes slideBottomIn {
+   0% {
+     transform: translateY(100%)
+   }
+
+   100% {
+     transform: translateY(0)
+   }
+ }
+
+ @keyframes slideBottomOut {
+   0% {
+     transform: translateY(0)
+   }
+
+   100% {
+     transform: translateY(100%)
+   }
+ }

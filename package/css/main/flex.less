@@ -1,0 +1,222 @@
+@import "../theme.less";
+/*
+*flex布局
+*/
+
+.vi-flex {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex-direction: row;
+}
+.vi-flex.is-center {
+  justify-content: center;
+  align-items: center;
+}
+/*
+*flex布局 水平排列方式
+*/
+.vi-flex.is-justify-content--flex-start {
+  justify-content: flex-start;
+}
+.vi-flex.is-justify-content--center {
+  justify-content: center;
+}
+
+.vi-flex.is-justify-content--flex-end {
+  justify-content: flex-end;
+}
+
+.vi-flex.is-justify-content--space-between {
+  justify-content: space-between;
+}
+
+.vi-flex.is-justify-content--space-around {
+  justify-content: space-around;
+}
+
+/*
+*flex布局 垂直方向排列方式
+*/
+.vi-flex.is-align-items--flex-start {
+  align-items: flex-start;
+}
+
+.vi-flex.is-align-items--flex-end {
+  align-items: flex-end;
+}
+
+.vi-flex.is-align-items--center {
+  align-items: center;
+}
+
+.vi-flex.is-align-items--baseline {
+  align-items: baseline;
+}
+
+.vi-flex.is-align-items--stretch {
+  align-items: stretch;
+}
+
+/*
+*flex布局 多根轴线的对齐方式
+*/
+
+.vi-flex.is-align-content--center {
+  align-content: center;
+}
+
+.vi-flex.is-align-content--flex-start {
+  align-content: flex-start;
+}
+
+.vi-flex.is-align-content--flex-end {
+  align-content: flex-end;
+}
+
+.vi-flex.is-align-content--space-around {
+  align-content: space-around;
+}
+
+.vi-flex.is-align-content--space-between {
+  align-content: space-between;
+}
+
+.vi-flex.is-align-content--stretch {
+  align-content: stretch;
+}
+
+/*
+*flex布局 决定主轴的方向
+*/
+.vi-flex.is-flex-direction--row {
+  flex-direction: row;
+}
+
+.vi-flex.is-flex-direction--row-reverse {
+  flex-direction: row-reverse;
+}
+
+.vi-flex.is-flex-direction--column {
+  flex-direction: column;
+}
+
+.vi-flex.is-flex-direction--column-reverse {
+  flex-direction: column-reverse;
+}
+
+/*
+*flex布局 项目都排在一条线,如果一条轴线排不下，如何换行
+*/
+
+.vi-flex.is-flex-wrap--nowrap {
+  flex-wrap: nowrap;
+}
+
+.vi-flex.is-flex-wrap--wrap {
+  flex-wrap: wrap;
+}
+
+.vi-flex.is-flex-wrap--wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+/*
+*flex布局 子元素
+*/
+
+.vi-flex-item {
+  box-sizing: border-box;
+}
+
+/*
+* flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选
+*/
+
+.vi-flex-item.is-flex--0 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+
+.vi-flex-item.is-flex--1 {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+
+.vi-flex-item.is-flex--none {
+  //flex: none;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+.vi-flex-item.is-flex--auto {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+/*
+*flex布局 排序
+*/
+
+.vi-flex-item.is-order--0 {
+  order: 0;
+}
+
+.vi-flex-item.is-order--1 {
+  order: 1;
+}
+
+/*
+*flex布局 放大比例
+*/
+
+.vi-flex-item.is-flex-grow--0 {
+  flex-grow: 0;
+}
+
+.vi-flex-item.is-flex-grow--1 {
+  flex-grow: 1;
+}
+
+/*
+*flex布局 缩小比例
+*/
+.vi-flex-item.is-flex-shrink--0 {
+  flex-shrink: 0;
+}
+
+.vi-flex-item.is-flex-shrink--1 {
+  flex-shrink: 1;
+}
+
+/*
+* 允许单个项目不同于其项目的对齐方式
+*/
+
+.vi-flex-item.is-aglin-selfk--auto {
+  align-self: auto;
+}
+
+.vi-flex-item.is-aglin-selfk--flex-start {
+  align-self: flex-start;
+}
+
+.vi-flex-item.is-aglin-selfk--flex-end {
+  align-self: flex-end;
+}
+
+.vi-flex-item.is-aglin-selfk--center {
+  align-self: center;
+}
+
+.vi-flex-item.is-aglin-selfk--baseline {
+  align-self: baseline;
+}
+
+.vi-flex-item.is-aglin-selfk--stretch {
+  align-self: stretch;
+}

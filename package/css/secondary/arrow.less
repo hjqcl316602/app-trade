@@ -1,0 +1,108 @@
+/*
+* css 实现三角形
+*/
+
+.jq-arrow {
+  display     : inline-block;
+  height      : 0;
+  width       : 0;
+  border-style: solid;
+
+}
+
+.jq-arrow.jq-arrow_left {
+  border-top-width   : 6px;
+  border-bottom-width: 6px;
+  border-left-width  : 6px;
+  border-right-width : 0;
+  border-color       : transparent transparent transparent #000
+}
+
+.jq-arrow.jq-arrow_right {
+  border-top-width   : 6px;
+  border-bottom-width: 6px;
+  border-left-width  : 0;
+  border-right-width : 6px;
+  border-color       : transparent #000 transparent transparent
+}
+
+.jq-arrow.jq-arrow_top {
+  border-top-width   : 6px;
+  border-bottom-width: 0;
+  border-left-width  : 6px;
+  border-right-width : 6px;
+  border-color       : #000 transparent transparent transparent
+}
+
+.jq-arrow.jq-arrow_top-left {
+  border-top-width   : 6px;
+  border-bottom-width: 6px;
+  border-left-width  : 6px;
+  border-right-width : 6px;
+  border-color       : #000 #000 transparent transparent
+}
+
+.jq-arrow.jq-arrow_top-right {
+  border-top-width   : 6px;
+  border-bottom-width: 6px;
+  border-left-width  : 6px;
+  border-right-width : 6px;
+  border-color       : #000 transparent transparent #000
+}
+
+.jq-arrow.jq-arrow_bottom {
+  border-top-width   : 0;
+  border-bottom-width: 6px;
+  border-left-width  : 6px;
+  border-right-width : 6px;
+  border-color       : transparent transparent #000 transparent
+}
+
+.jq-arrow.jq-arrow_bottom-left {
+  border-top-width   : 6px;
+  border-bottom-width: 6px;
+  border-left-width  : 6px;
+  border-right-width : 6px;
+  border-color       : transparent transparent #000 #000
+}
+
+.jq-arrow.jq-arrow_bottom-right {
+  border-top-width   : 6px;
+  border-bottom-width: 6px;
+  border-left-width  : 6px;
+  border-right-width : 6px;
+  border-color       : transparent #000 #000 transparent
+}
+
+
+.jq-arrow.jq-arrow_equal.jq-arrow_left {
+  border-top-width   : 6px;
+  border-bottom-width: 6px;
+  border-left-width  : 6*1.732px;
+  border-right-width : 0;
+  border-color       : transparent transparent transparent #000
+}
+
+.jq-arrow.jq-arrow_equal.jq-arrow_right {
+  border-top-width   : 6px;
+  border-bottom-width: 6px;
+  border-left-width  : 0;
+  border-right-width : 6*1.732px;
+  border-color       : transparent #000 transparent transparent
+}
+
+.jq-arrow.jq-arrow_equal.jq-arrow_top {
+  border-top-width   : 6*1.732px;
+  border-bottom-width: 0;
+  border-left-width  : 6px;
+  border-right-width : 6px;
+  border-color       : #000 transparent transparent transparent
+}
+
+.jq-arrow.jq-arrow_equal.jq-arrow_bottom {
+  border-top-width   : 0;
+  border-bottom-width: 6*1.732px;
+  border-left-width  : 6px;
+  border-right-width : 6px;
+  border-color       : transparent transparent #000 transparent
+}

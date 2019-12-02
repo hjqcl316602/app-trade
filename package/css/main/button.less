@@ -1,0 +1,257 @@
+@import "../theme.less";
+
+.vi-btn-group {
+  font-size: 0; // 解决子元素display:inline-block的间距
+}
+.vi-btn {
+  outline: none;
+  border: none;
+  cursor: pointer; // 手机端可以取消该属性，否则会出现按键激活样式
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  appearance: none;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: @color-dark;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/**
+* 按钮 触发动画
+*/
+.vi-btn::before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  border-color: #000;
+  background-color: #000;
+  border-radius: inherit;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+}
+
+.vi-btn:active::before {
+  opacity: 0.1;
+}
+
+/**
+* 按钮 禁用样式
+*/
+.vi-btn.is-btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  &::before {
+    display: none;
+  }
+}
+
+/**
+* 按钮 块级
+*/
+.vi-btn.is-btn--long {
+  display: block;
+}
+
+/**
+* 按钮 尺寸
+*/
+.vi-btn.is-btn--smaller {
+  line-height: @btn-size-smaller;
+  padding: 0 @btn-size-smaller / 4;
+  height: @btn-size-smaller;
+}
+
+.vi-btn.is-btn--small {
+  line-height: @btn-size-small;
+  padding: 0 @btn-size-small / 4;
+  height: @btn-size-small;
+}
+.vi-btn {
+  line-height: @btn-size-medium;
+  padding: 0 @btn-size-medium / 4;
+  height: @btn-size-medium;
+}
+.vi-btn.is-btn--large {
+  line-height: @btn-size-large;
+  padding: 0 @btn-size-large / 4;
+  height: @btn-size-large;
+}
+
+.vi-btn.is-btn--larger {
+  line-height: @btn-size-larger;
+  padding: 0 @btn-size-larger / 4;
+  height: @btn-size-larger;
+}
+
+/**
+* 按钮 颜色
+*/
+.vi-btn.is-btn--warning {
+  color: @color-warning;
+}
+
+.vi-btn.is-btn--danger {
+  color: @color-danger;
+}
+
+.vi-btn.is-btn--primary {
+  color: @color-primary;
+}
+
+.vi-btn.is-btn--success {
+  color: @color-success;
+}
+
+.vi-btn.is-btn--black {
+  color: @color-black;
+}
+
+.vi-btn.is-btn--white {
+  color: @color-white;
+}
+/**
+* 按钮 只是文本
+*/
+.vi-btn.is-btn--text {
+  line-height: 16px;
+  padding: 0;
+  height: 16px;
+}
+
+/**
+* 按钮 块状样式
+*/
+.vi-btn.is-btn--pack {
+}
+.vi-btn.is-btn--pack.is-btn--shadow {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+/**
+* 按钮 块状样式-圆角
+*/
+.vi-btn.is-btn--pack.is-btn--round {
+  border-radius: 10em;
+}
+
+.vi-btn.is-btn--pack.is-btn--radius {
+  border-radius: 4px;
+}
+
+/**
+* 按钮 块状样式 - 颜色
+*/
+.vi-btn.is-btn--pack.is-btn--warning {
+  color: #fff;
+  background-color: @color-warning;
+}
+
+.vi-btn.is-btn--pack.is-btn--danger {
+  color: #fff;
+  background-color: @color-danger;
+}
+
+.vi-btn.is-btn--pack.is-btn--primary {
+  color: #fff;
+  background-color: @color-primary;
+}
+
+.vi-btn.is-btn--pack.is-btn--success {
+  color: #fff;
+  background-color: @color-success;
+}
+
+.vi-btn.is-btn--pack.is-btn--black {
+  color: #fff;
+  background-color: @color-black;
+}
+
+.vi-btn.is-btn--pack.is-btn--white {
+  color: @color-dark;
+  background-color: @color-white;
+}
+
+/**
+* 按钮 镂空样式
+*/
+.vi-btn.is-btn--hollow {
+  position: relative;
+}
+
+/**
+* 按钮 镂空样式 - border
+*/
+
+.vi-btn.is-btn--hollow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  border-style: solid;
+  border-width: 1px;
+}
+
+/**
+* 按钮 镂空样式 - border - dashed
+*/
+.vi-btn.is-btn--hollow.is-btn--dashed::after {
+  border-style: dashed;
+}
+
+/**
+* 按钮 镂空样式 - border - 细
+*/
+.vi-btn.is-btn--hollow.is-btn--thin::after {
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+}
+
+.vi-btn.is-btn--hollow.is-btn--thiner::after {
+  width: 300%;
+  height: 300%;
+  transform: scale(1/3);
+}
+
+/**
+* 按钮 镂空样式 - border - 小圆角
+*/
+.vi-btn.is-btn--hollow.is-btn--radius,
+.vi-btn.is-btn--hollow.is-btn--radius::after {
+  border-radius: 4px;
+}
+
+/**
+* 按钮 镂空样式 - border - 大圆角
+*/
+.vi-btn.is-btn--hollow.is-btn--round {
+  border-radius: 10em;
+}
+.vi-btn.is-btn--hollow.is-btn--round::after {
+  border-radius: 10em;
+}
+
+.vi-btn.is-btn--hollow.is-btn--thin.is-btn--radius::after {
+  border-radius: 8px;
+}
+.vi-btn.is-btn--hollow.is-btn--thiner.is-btn--radius::after {
+  border-radius: 12px;
+}

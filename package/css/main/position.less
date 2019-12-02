@@ -1,0 +1,104 @@
+@import "../theme.less";
+
+.vi-locked {
+  overflow: hidden;
+  height: 100%;
+}
+
+// cover
+
+.vi-cover {
+  width: 100%;
+  height: 100%;
+}
+
+.vi-cover.is-cover--ver {
+  height: 100%;
+  width: auto;
+}
+
+.vi-cover.is-cover--hor {
+  width: 100%;
+  height: auto;
+}
+
+// 填充
+
+.vi-cotain {
+  width: 100vw;
+  height: 100vh;
+}
+
+.vi-cotain.is-cotain--ver {
+  height: 100vh;
+  width: auto;
+}
+
+.vi-cotain.is-contain--hor {
+  width: 100vw;
+  height: auto;
+}
+
+.vi-cotain.is-contain--ver.is-contain--min {
+  width: auto;
+  min-height: 100vh;
+  height: auto;
+}
+
+// 标记
+// 必填项
+.vi-tag {
+  position: relative;
+}
+.vi-tag.is-tag--require {
+  padding-left: @padding-medium;
+}
+.vi-tag.is-tag--require:before {
+  content: "*";
+  position: absolute;
+  left: @padding-medium;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  color: @color-danger;
+}
+
+.vi-tag.is-tag--require.is-tag--right {
+  padding-right: @padding-medium;
+}
+
+.vi-tag.is-tag--require.is-tag--right:before {
+  content: "*";
+  position: absolute;
+  right: @padding-medium;
+  left: auto;
+  top: 50%;
+  transform: translate(100%, -50%);
+  color: @color-danger;
+}
+
+.vi-tag .vi-tag-label {
+  display: inline-block;
+  border: 1px solid #fff;
+  border-radius: 16px;
+  line-height: 14px;
+  font-size: 12px;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 0 3px;
+  text-align: center;
+  background-color: @color-danger;
+  min-width: 16px;
+  max-width: 32px;
+  font-weight: 800;
+  transform-origin: 100%;
+  font-style: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vi-tag .vi-tag-label.is-tag--top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -1,0 +1,44 @@
+.vui-loading-ring {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box
+  }
+}
+
+.vui-loading-ring:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-style: solid;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-color: transparent;
+  animation-fill-mode: both;
+  animation-direction: normal;
+  animation-duration: 1.5s;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-name: loading-ring;
+  transform-origin: 50% 50%;
+}
+
+@keyframes loading-ring {
+
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

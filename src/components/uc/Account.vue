@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       storage: {
-        types: ["银行卡", "微信", "支付宝", "云闪付", "聚合码",'动态码']
+        types: ["银行卡", "微信", "支付宝", "云闪付", "聚合码", "动态码"]
       },
       uploadHeaders: { "x-auth-token": localStorage.getItem("TOKEN") },
       //uploadUrl: 'http://103.91.217.67/res/upload/image/qr.do',
@@ -68,9 +68,9 @@ export default {
         url: "",
         payMode: []
       },
-        dynamic:{
-          name:''
-        },
+      dynamic: {
+        name: ""
+      },
 
       setting: [],
       del: {
@@ -389,28 +389,28 @@ export default {
         } else {
           this.$Message.error(check["message"]);
         }
-      }else if (this.params.type === "6") {
-          check
-              .set(this.dynamic.name, true, "请输入您的动态码账号")
-              .set(this.password, true, "请输入您的资金密码");
-          if (check.pass) {
-              this.$request("/uc/approve/bind/payInfo")({
-                  type: this.params.type,
-                  name: this.dynamic.name,
-                  jyPassword: this.password
-              }).then(res => {
-                  if (res["code"] === 0) {
-                      this.popup.edit = false;
-                      this.dynamic.name = "";
-                      this.getSetting();
-                      this.$Message.success(res["message"]);
-                  } else {
-                      this.$Message.error(res["message"]);
-                  }
-              });
-          } else {
-              this.$Message.error(check["message"]);
-          }
+      } else if (this.params.type === "6") {
+        check
+          .set(this.dynamic.name, true, "请输入您的动态码账号")
+          .set(this.password, true, "请输入您的资金密码");
+        if (check.pass) {
+          this.$request("/uc/approve/bind/payInfo")({
+            type: this.params.type,
+            name: this.dynamic.name,
+            jyPassword: this.password
+          }).then(res => {
+            if (res["code"] === 0) {
+              this.popup.edit = false;
+              this.dynamic.name = "";
+              this.getSetting();
+              this.$Message.success(res["message"]);
+            } else {
+              this.$Message.error(res["message"]);
+            }
+          });
+        } else {
+          this.$Message.error(check["message"]);
+        }
       }
     },
     deleteBeforePay(item) {
@@ -983,26 +983,26 @@ export default {
               <div class="vui-flex">
                 <div class="vui-flex--1 vui-margin-right">
                   <i-input
-                          v-model="alipay.userId"
-                          placeholder="请输入您的支付宝ID..."
+                    v-model="alipay.userId"
+                    placeholder="请输入您的支付宝ID..."
                   ></i-input>
                 </div>
                 <Tooltip>
                   <i-button>获取</i-button>
                   <div slot="content" style="width:100%;">
                     <div
-                            style="white-space:normal"
-                            class="vui-margin-bottom vui-color--primary"
+                      style="white-space:normal"
+                      class="vui-margin-bottom vui-color--primary"
                     >
                       <span
-                      >打开支付宝APP扫一扫，将得到的结果填入到输入框中即可，确保输入的支付宝ID准确无误，否则导致收款失败</span
+                        >打开支付宝APP扫一扫，将得到的结果填入到输入框中即可，确保输入的支付宝ID准确无误，否则导致收款失败</span
                       >
                     </div>
                     <div>
                       <img
-                              src="../../assets/img/userid.jpg"
-                              alt=""
-                              width="220px"
+                        src="../../assets/img/userid.jpg"
+                        alt=""
+                        width="220px"
                       />
                     </div>
                   </div>
@@ -1010,7 +1010,6 @@ export default {
               </div>
               <div>
                 <i-button @click="authBefore" v-if="false">方式一</i-button>
-
               </div>
             </div>
           </div>
@@ -1176,7 +1175,7 @@ export default {
           <div v-flex v-css="{ marginBottom: 'large' }">
             <div v-flex-item="{ span: 6 }">
               <div
-                      v-css="{
+                v-css="{
                   lineHeight: '32px',
                   textAlign: 'right',
                   paddingRight: 'large'
@@ -1188,8 +1187,8 @@ export default {
             </div>
             <div v-flex-item="{ span: 18 }">
               <i-input
-                      v-model="dynamic.name"
-                      placeholder="请输入您的动态码账号..."
+                v-model="dynamic.name"
+                placeholder="请输入您的动态码账号..."
               ></i-input>
             </div>
           </div>
@@ -1369,16 +1368,16 @@ export default {
           </template>
           <template v-if="item['type'] == 6">
             <div
-                    class="vui-flex  vui-align-items--center vui-padding-right--large"
-                    style="width:120px;border-right: 1px dashed #27313e"
+              class="vui-flex  vui-align-items--center vui-padding-right--large"
+              style="width:120px;border-right: 1px dashed #27313e"
             >
               <div
-                      class="app-icon app-icon--medium  app-icon--dynamic vui-margin-right--large"
+                class="app-icon app-icon--medium  app-icon--dynamic vui-margin-right--large"
               ></div>
               <span>动态码</span>
             </div>
             <div
-                    class="vui-flex--1 vui-padding-right--large vui-padding-left--large"
+              class="vui-flex--1 vui-padding-right--large vui-padding-left--large"
             >
               <span>
                 {{ item["name"] || "--" }}
@@ -1386,7 +1385,14 @@ export default {
             </div>
           </template>
 
-          <template v-if="item['type'] == 2 || item['type'] == 3  || item['type'] == 4  || item['type'] == 5 ">
+          <template
+            v-if="
+              item['type'] == 2 ||
+                item['type'] == 3 ||
+                item['type'] == 4 ||
+                item['type'] == 5
+            "
+          >
             <div
               class=" vui-padding-left vui-text-align--right app-cursor--pointer"
               @click="selectPicture(item)"

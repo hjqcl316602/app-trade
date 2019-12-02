@@ -210,6 +210,12 @@ const identbusiness = r =>
 // 新增页面
 const team = r =>
   require.ensure([], () => r(require("../pages/uc/team")), "team");
+const orderCustom = r =>
+  require.ensure(
+    [],
+    () => r(require("../pages/cms/order-custom")),
+    "orderCustom"
+  );
 
 export default [
   { path: "/", redirect: "/index" },
@@ -221,7 +227,7 @@ export default [
   { path: "/exchange", component: Exchange },
   { path: "/exchange/*", component: Exchange },
   { path: "/help", component: Help },
-
+  { path: "/order-custom", component: orderCustom },
   { path: "/helplist", component: HelpList },
   { path: "/helpdetail", component: HelpDetail },
   { path: "/notice", component: notice },

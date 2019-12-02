@@ -1,0 +1,29 @@
+@import "../../css/theme.less";
+
+.vui-notice {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+  background-color: #fff;
+  box-shadow: @shadow-bottom;
+}
+
+.vui-notice .vui-notice-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.vui-notice .vui-notice-footer--content {
+  padding: @padding-medium;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.vui-notice--body {
+  transition: padding-top 0.3s linear;
+  padding-top: 0;
+}

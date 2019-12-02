@@ -1,0 +1,410 @@
+@import "../theme.less";
+
+/**
+* 布局
+*/
+
+//.vi-row {
+//  margin-left: 0;
+//  margin-right: 0;
+//  height: auto;
+//  zoom: 1;
+//  display: block;
+//  box-sizing: border-box;
+//}
+//
+//.vi-row:before {
+//  content: "";
+//  display: table;
+//  clear: both;
+//}
+//
+//.vi-row:after {
+//  content: "";
+//  display: table;
+//  clear: both;
+//  font-size: 0;
+//  height: 0;
+//}
+//
+//.vi-row [class*="vi-span"] {
+//  display: block;
+//  position: relative;
+//  float: left;
+//  box-sizing: border-box;
+//}
+//
+//.vi-row--right [class*="vi-span"] {
+//  display: block;
+//  position: relative;
+//  float: right;
+//  box-sizing: border-box;
+//}
+
+/**
+* flex布局
+*/
+.vi-row {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex-direction: row;
+}
+
+.vi-row > .vi-span {
+  flex: none;
+  box-sizing: border-box;
+}
+
+/**
+* 布局 间距 4 8 12 16 20
+*/
+.vi-row.is-gutter--smaller {
+  margin-left: -@margin-smaller / 2;
+  margin-right: -@margin-smaller / 2;
+}
+
+.vi-row.is-gutter--smaller > .vi-span {
+  padding-left: @margin-smaller / 2;
+  padding-right: @margin-smaller / 2;
+}
+
+.vi-row.is-gutter--small {
+  margin-left: -@margin-small / 2;
+  margin-right: -@margin-small / 2;
+}
+
+.vi-row.is-gutter--small > .vi-span {
+  padding-left: @margin-small / 2;
+  padding-right: @margin-small / 2;
+}
+
+.vi-row.is-gutter {
+  margin-left: -@margin-medium / 2;
+  margin-right: -@margin-medium / 2;
+}
+
+.vi-row.is-gutter > .vi-span {
+  padding-left: @margin-medium / 2;
+  padding-right: @margin-medium / 2;
+}
+
+.vi-row.is-gutter--large {
+  margin-left: -@margin-large / 2;
+  margin-right: -@margin-large / 2;
+}
+
+.vi-row.is-gutter--large > .vi-span {
+  padding-left: @margin-large / 2;
+  padding-right: @margin-large / 2;
+}
+
+.vi-row.is-gutter--larger {
+  margin-left: -@margin-larger / 2;
+  margin-right: -@margin-larger / 2;
+}
+
+.vi-row.is-gutter--larger > .vi-span {
+  padding-left: @margin-larger / 2;
+  padding-right: @margin-larger / 2;
+}
+
+/**
+* 布局 宽度
+*/
+
+.vi-span.is-span--1 {
+  width: 1/24 * 100%;
+}
+
+.vi-span.is-span--2 {
+  width: 2/24 * 100%;
+}
+
+.vi-span.is-span--3 {
+  width: 3/24 * 100%;
+}
+
+.vi-span.is-span--4 {
+  width: 4/24 * 100%;
+}
+
+.vi-span.is-span--5 {
+  width: 5/24 * 100%;
+}
+
+.vi-span.is-span--6 {
+  width: 6/24 * 100%;
+}
+
+.vi-span.is-span--7 {
+  width: 7/24 * 100%;
+}
+
+.vi-span.is-span--8 {
+  width: 8/24 * 100%;
+}
+
+.vi-span.is-span--9 {
+  width: 9/24 * 100%;
+}
+
+.vi-span.is-span--10 {
+  width: 10/24 * 100%;
+}
+
+.vi-span.is-span--11 {
+  width: 11/24 * 100%;
+}
+
+.vi-span.is-span--12 {
+  width: 12/24 * 100%;
+}
+
+.vi-span.is-span--13 {
+  width: 13/24 * 100%;
+}
+
+.vi-span.is-span--14 {
+  width: 14/24 * 100%;
+}
+
+.vi-span.is-span--15 {
+  width: 15/24 * 100%;
+}
+
+.vi-span.is-span--16 {
+  width: 16/24 * 100%;
+}
+
+.vi-span.is-span--17 {
+  width: 17/24 * 100%;
+}
+
+.vi-span.is-span--18 {
+  width: 18/24 * 100%;
+}
+
+.vi-span.is-span--19 {
+  width: 19/24 * 100%;
+}
+
+.vi-span.is-span--20 {
+  width: 20/24 * 100%;
+}
+
+.vi-span.is-span--21 {
+  width: 21/24 * 100%;
+}
+
+.vi-span.is-span--22 {
+  width: 22/24 * 100%;
+}
+
+.vi-span.is-span--23 {
+  width: 23/24 * 100%;
+}
+
+.vi-span.is-span--24 {
+  width: 24/24 * 100%;
+}
+
+/**
+* 布局 左偏移量
+*/
+
+.vi-span.is-push--1 {
+  margin-left: 1/24 * 100%;
+}
+
+.vi-span.is-push--2 {
+  margin-left: 2/24 * 100%;
+}
+
+.vi-span.is-push--3 {
+  margin-left: 3/24 * 100%;
+}
+
+.vi-span.is-push--4 {
+  margin-left: 4/24 * 100%;
+}
+
+.vi-span.is-push--5 {
+  margin-left: 5/24 * 100%;
+}
+
+.vi-span.is-push--6 {
+  margin-left: 6/24 * 100%;
+}
+
+.vi-span.is-push--7 {
+  margin-left: 7/24 * 100%;
+}
+
+.vi-span.is-push--8 {
+  margin-left: 8/24 * 100%;
+}
+
+.vi-span.is-push--9 {
+  margin-left: 9/24 * 100%;
+}
+
+.vi-span.is-push--10 {
+  margin-left: 10/24 * 100%;
+}
+
+.vi-span.is-push--11 {
+  margin-left: 11/24 * 100%;
+}
+
+.vi-span.is-push--12 {
+  margin-left: 12/24 * 100%;
+}
+
+.vi-span.is-push--13 {
+  margin-left: 13/24 * 100%;
+}
+
+.vi-span.is-push--14 {
+  margin-left: 14/24 * 100%;
+}
+
+.vi-span.is-push--15 {
+  margin-left: 15/24 * 100%;
+}
+
+.vi-span.is-push--16 {
+  margin-left: 16/24 * 100%;
+}
+
+.vi-span.is-push--17 {
+  margin-left: 17/24 * 100%;
+}
+
+.vi-span.is-push--18 {
+  margin-left: 18/24 * 100%;
+}
+
+.vi-span.is-push--19 {
+  margin-left: 19/24 * 100%;
+}
+
+.vi-span.is-push--20 {
+  margin-left: 20/24 * 100%;
+}
+
+.vi-span.is-push--21 {
+  margin-left: 21/24 * 100%;
+}
+
+.vi-span.is-push--22 {
+  margin-left: 22/24 * 100%;
+}
+
+.vi-span.is-push--23 {
+  margin-left: 23/24 * 100%;
+}
+
+.vi-span.is-push--24 {
+  margin-left: 24/24 * 100%;
+}
+
+/**
+* 布局 右偏移量
+*/
+
+.vi-span.is-pull--1 {
+  margin-right: 1/24 * 100%;
+}
+
+.vi-span.is-pull--2 {
+  margin-right: 2/24 * 100%;
+}
+
+.vi-span.is-pull--3 {
+  margin-right: 3/24 * 100%;
+}
+
+.vi-span.is-pull--4 {
+  margin-right: 4/24 * 100%;
+}
+
+.vi-span.is-pull--5 {
+  margin-right: 5/24 * 100%;
+}
+
+.vi-span.is-pull--6 {
+  margin-right: 6/24 * 100%;
+}
+
+.vi-span.is-pull--7 {
+  margin-right: 7/24 * 100%;
+}
+
+.vi-span.is-pull--8 {
+  margin-right: 8/24 * 100%;
+}
+
+.vi-span.is-pull--9 {
+  margin-right: 9/24 * 100%;
+}
+
+.vi-span.is-pull--10 {
+  margin-right: 10/24 * 100%;
+}
+
+.vi-span.is-pull--11 {
+  margin-right: 11/24 * 100%;
+}
+
+.vi-span.is-pull--12 {
+  margin-right: 12/24 * 100%;
+}
+
+.vi-span.is-pull--13 {
+  margin-right: 13/24 * 100%;
+}
+
+.vi-span.is-pull--14 {
+  margin-right: 14/24 * 100%;
+}
+
+.vi-span.is-pull--15 {
+  margin-right: 15/24 * 100%;
+}
+
+.vi-span.is-pull--16 {
+  margin-right: 16/24 * 100%;
+}
+
+.vi-span.is-pull--17 {
+  margin-right: 17/24 * 100%;
+}
+
+.vi-span.is-pull--18 {
+  margin-right: 18/24 * 100%;
+}
+
+.vi-span.is-pull--19 {
+  margin-right: 19/24 * 100%;
+}
+
+.vi-span.is-pull--20 {
+  margin-right: 20/24 * 100%;
+}
+
+.vi-span.is-pull--21 {
+  margin-right: 21/24 * 100%;
+}
+
+.vi-span.is-pull--22 {
+  margin-right: 22/24 * 100%;
+}
+
+.vi-span.is-pull--23 {
+  margin-right: 23/24 * 100%;
+}
+
+.vi-span.is-pull--24 {
+  margin-right: 24/24 * 100%;
+}

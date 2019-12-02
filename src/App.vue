@@ -10,7 +10,6 @@
         <div class="page-content">
             <div class="time_download">
                 <div class="leftwrapper">
-                    <!-- <img src="../src/assets/images/clock.png" alt="" class="clock"> -->
                     <Icon
                             type="ios-clock-outline"
                             class="clock"
@@ -25,42 +24,6 @@
                     </audio>
                     <Checkbox v-model="audio.close"> {{ audio.close ? '关闭':'开启' }}新订单语音提醒</Checkbox>
                 </div>
-                <!--<div class="rightwrapper">-->
-                <!--<poptip placement="bottom" width="270" class="appdownload">-->
-                <!--<a href="javascript:;" style="font-size:12px;">{{$t("header.appdownlaod")}}-->
-                <!--<Icon type="md-arrow-dropdown" size="16" />-->
-                <!--</a>-->
-                <!--<div class="api" slot="content">-->
-                <!--<div class="ios">-->
-                <!--<img src="../src/assets/images/app_ios.png" alt="">-->
-                <!--<div class="tips">-->
-                <!--<img src="../src/assets/images/ios.png" alt="">-->
-                <!--<span>IOS</span>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="andrio">-->
-                <!--<img src="../src/assets/images/app_andraio.png" alt="">-->
-                <!--<div class="tips">-->
-                <!--<img src="../src/assets/images/andraio.png" alt="">-->
-                <!--<span>Android</span>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</poptip>-->
-                <!--&lt;!&ndash; <div class="changelanguage">-->
-                <!--<div class="languagelogo"><img src="./assets/images/change_language.png" alt=""></div>-->
-                <!--<Dropdown @on-click="changelanguage">-->
-                <!--<a href="javascript:void(0)" style="font-size:12px;">-->
-                <!--{{languageValue}}-->
-                <!--<Icon type="arrow-down-b"></Icon>-->
-                <!--</a>-->
-                <!--<DropdownMenu slot="list" id="change_language_theme">-->
-                <!--<DropdownItem v-if="languageValue=='简体中文'" name="en">English</DropdownItem>-->
-                <!--<DropdownItem v-else name="cn">简体中文</DropdownItem>-->
-                <!--</DropdownMenu>-->
-                <!--</Dropdown>-->
-                <!--</div> &ndash;&gt;-->
-                <!--</div>-->
             </div>
             <div class="layout">
                 <div class="layout-ceiling">
@@ -104,6 +67,11 @@
                                     class="login_register isLogin"
                                     v-if="isLogin"
                             >
+                                <template v-if="member.channelFlag === 1 ">
+                                    <div class="mymsg">
+                                        <router-link to="/order-custom">订单申诉</router-link>
+                                    </div>
+                                </template>
                                 <div class="mymsg">
                                     <router-link to="/uc/safe">个人中心</router-link>
                                 </div>
@@ -166,9 +134,7 @@
                     </div>
                 </div>
             </div>
-            <!-- <div :class="container_test"> -->
             <router-view></router-view>
-            <!-- </div> -->
         </div>
         <div class="footer">
             <div class="footer_content">
@@ -687,7 +653,7 @@
                         right: 80px;
                         .mymsg {
                             float: left;
-                            padding-right: 20px;
+                            /*padding-right: 20px;*/
                             a {
                                 color: #fff;
                                 display: inline;
@@ -894,7 +860,7 @@
                     .rr {
                         .mymsg {
                             float: left;
-                            padding-right: 20px;
+                            /*padding-right: 20px;*/
                             a {
                                 color: #fff;
                                 display: inline;
@@ -1283,8 +1249,8 @@
         line-height: 40px;
         height: 40px;
         text-align: center;
-        margin-left: 38px;
-        /*padding: 0 15px;*/
+        /*margin-left: 38px;*/
+        padding: 0 15px;
     }
 
     .header_nav {

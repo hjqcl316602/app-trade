@@ -1,0 +1,5 @@
+1.介绍
+button text background grid 等不用写成组件的形式，使用css即可，若出现css不够用，则可以在引入less之后，在该文件后面继续追加即可
+
+2.全局安装
+message loading action-sheet

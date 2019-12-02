@@ -1,0 +1,8 @@
+{
+  "name": "store-vue-ui",
+  "version": "1.1.4",
+  "description": "store-vue-ui vue ui ",
+  "author": "hjqcl316602 <415877608@qq.com>",
+  "private": false,
+  "main": "index.min.js"
+}

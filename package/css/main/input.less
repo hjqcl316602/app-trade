@@ -1,0 +1,69 @@
+@import "../theme.less";
+
+.vi-input {
+  flex: 1;
+  text-align: left;
+  display: inline-block;
+  outline: 0;
+  width: 100%;
+  padding: 0 10px;
+  color: @color-dark;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+}
+.vi-input::placeholder {
+  color: @color-disabled;
+  font-size: @root-font-size;
+}
+/**
+* input 尺寸
+*/
+
+.vi-input {
+  height: @input-size-medium;
+  line-height: @input-size-medium;
+}
+.vi-input.is-input--smaller {
+  height: @input-size-smaller;
+  line-height: @input-size-smaller;
+}
+.vi-input.is-input--small {
+  height: @input-size-small;
+  line-height: @input-size-small;
+}
+.vi-input.is-input--large {
+  height: @input-size-large;
+  line-height: @input-size-large;
+}
+.vi-input.is-input--larger {
+  height: @input-size-larger;
+  line-height: @input-size-larger;
+}
+
+/**
+* input 对齐方式
+*/
+.vi-input.is-input--left {
+  text-align: left;
+}
+
+.vi-input.is-input--center {
+  text-align: center;
+}
+
+.vi-input.is-input--right {
+  text-align: right;
+}
+/**
+* input 边框
+*/
+.vi-input.is-input--border {
+  border-width: 1px;
+  border-color: @input-border-color;
+  transition: border-color 0.5s ease-in-out;
+  border-style: solid;
+}
+.vi-input.is-input--border:focus {
+  border-color: @input-border-active-color;
+}

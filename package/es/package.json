@@ -1,0 +1,8 @@
+{
+  "name": "store-es",
+  "version": "2.1.0",
+  "description": "store es ",
+  "author": "hjqcl316602 <415877608@qq.com>",
+  "private": false,
+  "main": "index.js"
+}

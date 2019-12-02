@@ -1,0 +1,25 @@
+ .vui-notice-bar {
+   flex: 1;
+   overflow: hidden;
+   position: relative;
+ }
+
+ .vui-notice-bar .vui-notice-bar--content.is-row {
+   position: absolute;
+   white-space: nowrap;
+   padding-left: 100%;
+ }
+
+ .vui-notice-bar .vui-notice-bar--content.is-move {
+   animation-delay: 0s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite
+ }
+
+ .vui-notice-bar .vui-notice-bar--content.is-row.is-move {
+   animation-name: slideLeftOut;
+ }
+
+ .vui-notice-bar .vui-notice-bar--content.is-column.is-move {
+   animation-name: slideTopOut;
+ }

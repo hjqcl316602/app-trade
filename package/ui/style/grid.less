@@ -1,0 +1,168 @@
+//父元素
+.vui-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+// 水平排列方式
+.vui-grid.vui-justify-content--flex-start {
+  justify-content: flex-start
+}
+
+.vui-grid.vui-justify-content--center {
+  justify-content: center
+}
+
+.vui-grid.vui-justify-content--flex-end {
+  justify-content: flex-end
+}
+
+.vui-grid.vui-justify-content--space-between {
+  justify-content: space-between
+}
+
+.vui-grid.vui-justify-content--space-around {
+  justify-content: space-around
+}
+
+//  垂直排列方式
+.vui-grid.vui-align-items--flex-start {
+  align-items: flex-start
+}
+
+.vui-grid.vui-align-items--flex-end {
+  align-items: flex-end
+}
+
+.vui-grid.vui-align-items--center {
+  align-items: center
+}
+
+.vui-grid.vui-align-items--baseline {
+  align-items: baseline
+}
+
+.vui-grid.vui-align-items--stretch {
+  align-items: stretch
+}
+
+/*
+* 决定主轴的方向
+*/
+.vui-grid.vui-flex-direction--row {
+  flex-direction: row
+}
+
+.vui-grid.vui-flex-direction--row-reverse {
+  flex-direction: row-reverse
+}
+
+.vui-grid.vui-flex-direction--column {
+  flex-direction: column
+}
+
+.vui-grid.vui-flex-direction--column-reverse {
+  flex-direction: column-reverse
+}
+
+/*
+* 默认情况下，项目都排在一条线（又称"轴线"）上。flex-wrap属性定义，如果一条轴线排不下，如何换行
+*/
+.vui-grid.vui-flex-wrap--nowrap {
+  flex-wrap: nowrap
+}
+
+.vui-grid.vui-flex-wrap--wrap {
+  flex-wrap: wrap
+}
+
+.vui-grid.vui-flex-wrap--wrap-reverse {
+  flex-wrap: wrap-reverse
+}
+
+/*
+*属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用
+*/
+.vui-grid.vui-align-content--flex-start {
+  align-content: flex-start
+}
+
+.vui-grid.vui-align-content--flex-end {
+  align-content: flex-end
+}
+
+.vui-grid.vui-align-content--center {
+  align-content: center
+}
+
+.vui-grid.vui-align-content--space-around {
+  align-content: space-around
+}
+
+.vui-grid.vui-align-content--space-between {
+  align-content: space-between
+}
+
+.vui-grid.vui-align-content--stretch {
+  align-content: stretch
+}
+
+// 子元素
+.vui-grid-child {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  box-sizing: border-box
+}
+
+/*
+*定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+*/
+.vui-grid-child.vui-flex-shrink--0 {
+  flex-shrink: 0;
+}
+
+.vui-grid-child.vui-flex-shrink--1 {
+  flex-shrink: 1;
+}
+
+/*
+* 属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+*/
+.vui-grid-child.vui-flex-grow--0 {
+  flex-grow: 0;
+}
+
+.vui-grid-child.vui-flex-grow--1 {
+  flex-grow: 1;
+}
+
+/*
+* align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。
+* 默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch
+*/
+.vui-grid-child.vui-align-self--auto {
+  align-self: auto
+}
+
+.vui-grid-child.vui-align-self--flex-start {
+  align-self: flex-start
+}
+
+.vui-grid-child.vui-align-self--flex-end {
+  align-self: flex-end
+}
+
+.vui-grid-child.vui-align-self--center {
+  align-self: center
+}
+
+.vui-grid-child.vui-align-self--baseline {
+  align-self: baseline
+}
+
+.vui-grid-child.vui-align-self--stretch {
+  align-self: stretch
+}
