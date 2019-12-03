@@ -503,11 +503,11 @@ export default {
     setOnline() {
       this.$http.post(this.host + "/uc/member/online").then(({ body }) => {
         console.log(body);
-        let { code ,data,message } = body ;
-        if( code === 0 ){
-            this.getOrder();
-            this.setOnlineTimer();
-        }  else  this.$Message.error(message)
+        let { code, data, message } = body;
+        if (code === 0) {
+          this.getOrder();
+          this.setOnlineTimer();
+        } else this.$Message.error(message);
       });
     },
     setOnlineTimer() {
@@ -524,9 +524,9 @@ export default {
       clearInterval(this.online.timer);
       this.online.timer = null;
     },
-      /**
-       * 格式化时间
-       */
+    /**
+     * 格式化时间
+     */
     formatTime(times) {
       let hour = 1000 * 60 * 60;
 
@@ -592,12 +592,12 @@ export default {
       </audio>
     </template>
 
-    <template v-if="content.payModeData.length > 0">
+    <template>
       <div style="line-height: 36px">
         <div class=" ">
-          <span class="vi-text is-weight--bold" style="font-size: 16px"
-            >接单中</span
-          >
+          <span class="vi-text is-weight--bold" style="font-size: 16px">
+            当前平台正在接单的数量
+          </span>
         </div>
         <div class=" vi-padding-left is-padding-left--larger">
           <div class="vi-flex">
@@ -641,9 +641,9 @@ export default {
             </div>
             <div class="vi-margin-right is-margin-right--larger">
               <span class=" vi-text is-weight--bold">
-                剩余数量：
+                剩余数量|TTM：
               </span>
-              <span class="vi-text  "> {{ item.remainAmount }} TTM </span>
+              <span class="vi-text  "> {{ item.remainAmount }}  </span>
             </div>
             <div class="vi-margin-right is-margin-right--larger">
               <span class=" vi-text is-weight--bold">
@@ -663,10 +663,18 @@ export default {
             </div>
           </div>
           <div>
-            <i-button size="large" long type="primary" @click="setOnline" v-if="online.backtime === 0 ">
+            <i-button
+              size="large"
+              long
+              type="primary"
+              @click="setOnline"
+              v-if="online.backtime === 0"
+            >
               抢单
             </i-button>
-            <i-button size="large" long type="default" v-else  disabled   >{{ formatTime(online.backtime) }}后操作</i-button>
+            <i-button size="large" long type="default" v-else disabled
+              >{{ formatTime(online.backtime) }}后操作</i-button
+            >
           </div>
         </div>
       </div>

@@ -228,9 +228,6 @@ export default {
         check
           .set(this.card.realName, true, "请输入您的银行卡姓名")
           .set(this.card.url, true, "请输入您的卡号")
-          .check("卡号格式错误，由15-19位数字组成", value => {
-            return /^[0-9]{15,19}$/.test(value);
-          })
           .set(this.card.reUrl, true, "请再次输入您的卡号")
           .check(
             "请输入相同的银行卡号",
@@ -748,20 +745,19 @@ export default {
           </div>
         </div>
         <template v-if="params.type == '1'">
-          <div v-flex v-css="{ marginBottom: 'large' }">
-            <div v-flex-item="{ span: 6 }">
-              <div
-                v-css="{
-                  lineHeight: '32px',
-                  textAlign: 'right',
-                  paddingRight: 'large'
-                }"
-              >
-                <span class="vui-color--danger">*</span>
+          <div
+            class="vi-row vi-margin-bottom is-margin-bottom--large"
+            style="line-height: 32px"
+          >
+            <div
+              class="vi-span is-span--6 vi-text is-align--right vi-padding-right is-padding-right--large"
+            >
+              <span class="vi-text is-color--danger">*</span>
+              <span>
                 姓名
-              </div>
+              </span>
             </div>
-            <div v-flex-item="{ span: 18 }">
+            <div class="vi-span is-span--18">
               <i-input
                 v-model="card.realName"
                 placeholder="请输入您的银行卡姓名..."
@@ -769,41 +765,39 @@ export default {
             </div>
           </div>
 
-          <div v-flex v-css="{ marginBottom: 'large' }">
-            <div v-flex-item="{ span: 6 }">
-              <div
-                v-css="{
-                  lineHeight: '32px',
-                  textAlign: 'right',
-                  paddingRight: 'large'
-                }"
-              >
-                <span class="vui-color--danger">*</span>
-
+          <div
+            class="vi-row vi-margin-bottom is-margin-bottom--large"
+            style="line-height: 32px"
+          >
+            <div
+              class="vi-span is-span--6 vi-text is-align--right vi-padding-right is-padding-right--large"
+            >
+              <span class="vi-text is-color--danger">*</span>
+              <span>
                 卡号
-              </div>
+              </span>
             </div>
-            <div v-flex-item="{ span: 18 }">
+            <div class="vi-span is-span--18">
               <i-input
                 v-model="card.url"
                 placeholder="请输入您的卡号..."
               ></i-input>
             </div>
           </div>
-          <div v-flex v-css="{ marginBottom: 'large' }">
-            <div v-flex-item="{ span: 6 }">
-              <div
-                v-css="{
-                  lineHeight: '32px',
-                  textAlign: 'right',
-                  paddingRight: 'large'
-                }"
-              >
-                <span class="vui-color--danger">*</span>
+
+          <div
+            class="vi-row vi-margin-bottom is-margin-bottom--large"
+            style="line-height: 32px"
+          >
+            <div
+              class="vi-span is-span--6 vi-text is-align--right vi-padding-right is-padding-right--large"
+            >
+              <span class="vi-text is-color--danger">*</span>
+              <span>
                 确认卡号
-              </div>
+              </span>
             </div>
-            <div v-flex-item="{ span: 18 }">
+            <div class="vi-span is-span--18">
               <i-input
                 v-model="card.reUrl"
                 placeholder="请再次输入您的卡号..."
@@ -812,25 +806,32 @@ export default {
             </div>
           </div>
 
-          <div v-flex v-css="{ marginBottom: 'large' }">
-            <div v-flex-item="{ span: 6 }">
-              <div
-                v-css="{
-                  lineHeight: '32px',
-                  textAlign: 'right',
-                  paddingRight: 'large'
-                }"
-              >
-                <span class="vui-color--danger">*</span>
+          <div class="vi-row" style="line-height: 32px">
+            <div
+              class="vi-span is-span--6 vi-text is-align--right vi-padding-right is-padding-right--large"
+            >
+              <span class="vi-text is-color--danger">*</span>
+              <span>
                 开户行
-              </div>
+              </span>
             </div>
-            <div v-flex-item="{ span: 18 }">
+            <div class="vi-span is-span--18">
               <i-input
                 v-model="card.name"
-                readonly
-                placeholder="自动获取开户行信息..."
+                placeholder="自动获取或手动填写开户行信息..."
               ></i-input>
+            </div>
+          </div>
+
+          <div
+            class="vi-row vi-margin-bottom is-margin-bottom--large"
+            style="line-height: 32px"
+          >
+            <div class="vi-span is-span--6"></div>
+            <div class="vi-span is-span--18">
+              <span class="vi-text is-color--danger"
+                >开户行信息可自动获取，若获取失败，请手动填写</span
+              >
             </div>
           </div>
         </template>
