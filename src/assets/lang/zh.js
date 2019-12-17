@@ -920,7 +920,7 @@
     description: {
         // message1: 'SSL、动态身份验证等银行级别安全技术，\n保障交易安全；支持多种数字货币交易',
         // message2: '严格的项目准入门槛，确保平台用户利益；\n100%保证金，钱包冷热隔离，确保用户资金安全',
-        // message3: 'ZTuo数字资产交易平台支持每秒1000笔交易，给用户带来酣畅淋漓\n的交易体验',
+        // message3: 'TTM数字资产交易平台支持每秒1000笔交易，给用户带来酣畅淋漓\n的交易体验',
         title1: '安全',
         title2: '快捷',
         title3: '体验',
@@ -1001,7 +1001,7 @@
         recordtitle: '返还记录',
         recordcontent: '每日（UTC+8，以下同）都会将前一日的用户所产生交易手续费，100%折算成BHB返还给用户，折算价格按前一交易日BHB的均价（均价计算方式为总成交金额/总成交量）。我们将于每日上午11点，开始发放前一日交易手续费折合BHB的返还。',
         /*time:"日期",
-        todaycharge:"当日ZTuo均价(ETH)",
+        todaycharge:"当日TTM均价(ETH)",
         totalChange:'当日总手续费折合(ETH)',
         returnCharge:"当日挖矿手续费返还(BHB)",
         todayChargeReturn:"当日挖矿收入倍增计划返还（BHB）"*/

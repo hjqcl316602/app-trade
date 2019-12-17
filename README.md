@@ -1,4 +1,4 @@
-# ZTuoExchange_web
+# TTMExchange_web
 
 >  开源数字资产交易所之web端
 
@@ -36,4 +36,3 @@ npm run build
 3. 页面比较多时应该使用文件夹做分类
 4. 模块中data变量应该尽量少，比较多时应该使用子对象进行管理
 
- 

@@ -83,7 +83,9 @@ export default {
         .then(({ body }) => {
           let { code, data, message } = body;
           if (code === 0) {
-            this.order.list = data.content;
+            this.order.list = data.content.filter(item=> {
+                return item.accessToken && item.subMemId
+            });
           } else this.$Message.error(message);
         });
     },
@@ -307,7 +309,7 @@ export default {
         accessToken,
         uidType
       };
-
+      console.log(message)
       this.chat.list.push(message);
 
       this._socket.send("/app/message/nologin", {}, JSON.stringify(message));

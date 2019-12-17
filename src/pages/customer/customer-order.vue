@@ -170,6 +170,7 @@ export default {
       //message["uidTo"] = this.message["kfId"];
       console.log("chat-message");
       this.chat.list.push(message);
+      console.log(message)
       this.scrollToBottom();
       this._stompClientChat.send(
         "/app/message/chat",
