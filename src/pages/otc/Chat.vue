@@ -184,7 +184,7 @@
                     {{ msg.unit }}
                   </span>
 
-                  <span>  |  </span>
+                  <span> | </span>
 
                   <span class="vui-font-weight--bold">
                     <span class="vui-color--primary" style="font-size: 24px">
@@ -192,7 +192,6 @@
                     </span>
                     CNY
                   </span>
-
                 </div>
                 <div class="vui-margin-bottom--large">
                   <Row>
@@ -302,16 +301,13 @@
                     </i-col>
                     <i-col span="16">
                       <div class="vui-padding-left vui-text-align--left">
-                        <span class="vui-font-weight--bold"
-                          >
+                        <span class="vui-font-weight--bold">
                           {{ msg.price }}
-                        </span
-                        >
+                        </span>
                       </div>
                     </i-col>
                   </Row>
                 </div>
-
 
                 <div class="vui-margin-bottom--large">
                   <Row>
@@ -416,54 +412,87 @@
               <i-col span="18">
                 <div class="vui-margin-bottom--large">
                   <template v-if="payStatus.bank">
-                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
-                      <i class="icons is-icons--large bankfor vui-margin-right"></i>
+                    <div
+                      style=" "
+                      class="vui-flex vui-justify-content--flex-start vui-align-items--center  "
+                    >
+                      <i
+                        class="icons is-icons--large bankfor vui-margin-right"
+                      ></i>
                       <span class="vui-margin-right" style="font-size: 24px">
-                        {{  bankInfo.bankRealName || "--" }}
+                        {{ bankInfo.bankRealName || "--" }}
                       </span>
-                      <i-button type="default" @click="showQRCode(3)">预览</i-button>
+                      <i-button type="default" @click="showQRCode(3)"
+                        >预览</i-button
+                      >
                     </div>
                   </template>
                   <template v-if="payStatus.wx">
-                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
-                      <i class="icons is-icons--large wechat vui-margin-right"></i>
+                    <div
+                      style=" "
+                      class="vui-flex vui-justify-content--flex-start vui-align-items--center  "
+                    >
+                      <i
+                        class="icons is-icons--large wechat vui-margin-right"
+                      ></i>
                       <span class="vui-margin-right" style="font-size: 24px">
-                        {{  wechatPay.wechat || "--" }}
+                        {{ wechatPay.wechat || "--" }}
                       </span>
-                      <i-button type="default" @click="showQRCode(2)">预览</i-button>
+                      <i-button type="default" @click="showQRCode(2)"
+                        >预览</i-button
+                      >
                     </div>
                   </template>
                   <template v-if="payStatus.ali">
-                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
-                      <i class="icons is-icons--large alipay vui-margin-right"></i>
+                    <div
+                      style=" "
+                      class="vui-flex vui-justify-content--flex-start vui-align-items--center  "
+                    >
+                      <i
+                        class="icons is-icons--large alipay vui-margin-right"
+                      ></i>
                       <span class="vui-margin-right" style="font-size: 24px">
-                        {{  alipay.alipayRealName || '--' }}
+                        {{ alipay.alipayRealName || "--" }}
                       </span>
-                      <i-button type="default" @click="showQRCode(1)">预览</i-button>
+                      <i-button type="default" @click="showQRCode(1)"
+                        >预览</i-button
+                      >
                     </div>
                   </template>
                   <template v-if="payStatus.unionpay">
-                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
-                      <i class="icons is-icons--large unionpay vui-margin-right"></i>
+                    <div
+                      style=" "
+                      class="vui-flex vui-justify-content--flex-start vui-align-items--center  "
+                    >
+                      <i
+                        class="icons is-icons--large unionpay vui-margin-right"
+                      ></i>
                       <span class="vui-margin-right" style="font-size: 24px">
-                        {{  unionpay.unionpay || "--" }}
+                        {{ unionpay.unionpay || "--" }}
                       </span>
-                      <i-button type="default" @click="showQRCode(4)">预览</i-button>
+                      <i-button type="default" @click="showQRCode(4)"
+                        >预览</i-button
+                      >
                     </div>
                   </template>
                   <template v-if="payStatus.aggregate">
-                    <div style=" " class="vui-flex vui-justify-content--flex-start vui-align-items--center  ">
-                      <i class="icons is-icons--large polymer vui-margin-right"></i>
+                    <div
+                      style=" "
+                      class="vui-flex vui-justify-content--flex-start vui-align-items--center  "
+                    >
+                      <i
+                        class="icons is-icons--large polymer vui-margin-right"
+                      ></i>
                       <span class="vui-margin-right" style="font-size: 24px">
-                        {{  aggregate.aggregate || "--" }}
+                        {{ aggregate.aggregate || "--" }}
                       </span>
-                      <i-button type="default" @click="showQRCode(5)">预览</i-button>
+                      <i-button type="default" @click="showQRCode(5)"
+                        >预览</i-button
+                      >
                     </div>
                   </template>
-
                 </div>
                 <div v-if="false">
-
                   <Row class="vui-padding--large" type="flex" justify="center">
                     <i-col span="6" class="order-info" v-if="payStatus.bank">
                       <i class="icons bankfor"></i>
@@ -586,27 +615,43 @@
         </FormItem>
       </Form>
     </Modal>
-    <Modal
-      v-model="modal5"
-      title="放行"
-      width="500px"
-    >
-      <div slot="footer"  >
-        <i-button type="default" v-if="release.backtime">{{ release.backtime }}秒后操作</i-button>
+    <Modal v-model="modal5" title="放行" width="500px">
+      <div slot="footer">
+        <i-button type="default" v-if="release.backtime"
+          >{{ release.backtime }}秒后操作</i-button
+        >
         <i-button type="primary" v-else @click="ok5">确认放行</i-button>
       </div>
       <div class="vui-margin-bottom">
         <p class="vui-color--danger vui-font-weight--bold">温馨提示</p>
-        <p class="vui-color--danger" style="text-indent: 20px;line-height: 36px">一、最近骗子猖獗，请再次核对金额，金额正确才放行，没有收到款或者收到金额不符款项，请务放行，
-          有任何问题请及时联系客服处理。</p>
-        <p class="vui-color--danger" style="text-indent: 40px;line-height: 36px">例如：付款方会更改自己的昵称，**通过扫码向你付款5000.00元，来迷惑收款方，其实付款方只付款了0.1元，
-          已经有多名币商被骗，请一定要谨慎操作</p>
-        <p class="vui-color--danger" style="text-indent: 20px;line-height: 36px">二、自己不认真核对金额造成损失的，损失由自己承担。</p>
-        <p class="vui-color--danger" style="text-indent: 20px;line-height: 36px">三、请谨慎放行，确认收到款项再放行，确认收到款项再放行，确认收到款项再放行。</p>
-
+        <p
+          class="vui-color--danger"
+          style="text-indent: 20px;line-height: 36px"
+        >
+          一、最近骗子猖獗，请再次核对金额，金额正确才放行，没有收到款或者收到金额不符款项，请务放行，
+          有任何问题请及时联系客服处理。
+        </p>
+        <p
+          class="vui-color--danger"
+          style="text-indent: 40px;line-height: 36px"
+        >
+          例如：付款方会更改自己的昵称，**通过扫码向你付款5000.00元，来迷惑收款方，其实付款方只付款了0.1元，
+          已经有多名币商被骗，请一定要谨慎操作
+        </p>
+        <p
+          class="vui-color--danger"
+          style="text-indent: 20px;line-height: 36px"
+        >
+          二、自己不认真核对金额造成损失的，损失由自己承担。
+        </p>
+        <p
+          class="vui-color--danger"
+          style="text-indent: 20px;line-height: 36px"
+        >
+          三、请谨慎放行，确认收到款项再放行，确认收到款项再放行，确认收到款项再放行。
+        </p>
       </div>
       <P style="color:red;font-weight: bold;">
-
         <Input
           type="password"
           v-model="fundpwd"
@@ -728,13 +773,17 @@
           </div>
         </div>
       </div>
-      <div
-        style=" text-align:center "
-        v-if="payCodeType == 1 && alipay.alipayRealName"
-      >
-        <span style="font-size:16px;font-weight:800;color:#fff">{{
-          alipay.alipayRealName
-        }}</span>
+      <div v-if="payCodeType == 1">
+        <div style=" text-align:center ">
+          <span style="font-size:16px;font-weight:800;color:#fff">
+            {{ alipay.alipay }}
+          </span>
+        </div>
+        <div style=" text-align:center ">
+          <span style="font-size:16px;font-weight:800;color:#fff">
+            {{ alipay.alipayRealName }}
+          </span>
+        </div>
       </div>
 
       <div slot="footer"></div>
@@ -784,7 +833,7 @@ export default {
       payCodeType: 0,
       payPopupMessage: [
         "请用银行卡进行转账",
-        "请用手机支付宝扫码",
+        "请用手机支付宝扫码或转账",
         "请用手机微信扫码",
         "请用银行卡进行转账"
       ],
@@ -817,10 +866,10 @@ export default {
         type: "",
         showBtn: false
       },
-        release:{
-          timer:null,
-            backtime:0
-        }
+      release: {
+        timer: null,
+        backtime: 0
+      }
     };
   },
 
@@ -828,13 +877,13 @@ export default {
     this.init();
   },
   computed: {},
-  watch:{
-      modal5(){
-          this.fundpwd = ""
-      },
-      ['tranfer.open'](){
-          this.tranfer.jyPassword = ""
-      }
+  watch: {
+    modal5() {
+      this.fundpwd = "";
+    },
+    ["tranfer.open"]() {
+      this.tranfer.jyPassword = "";
+    }
   },
   methods: {
     init() {
@@ -937,10 +986,10 @@ export default {
      */
 
     handlerTranfer: function() {
-        if (this.tranfer.number <= 0)
-            return this.$Message.warning("请输入合法的数量！");
-        if (!this.tranfer.jyPassword)
-            return this.$Message.warning("请输入您的资金密码！");
+      if (this.tranfer.number <= 0)
+        return this.$Message.warning("请输入合法的数量！");
+      if (!this.tranfer.jyPassword)
+        return this.$Message.warning("请输入您的资金密码！");
       if (this.tranfer.loading) this.$Message.warning("正在转账中...");
       this.tranfer.loading = true;
 
@@ -1005,27 +1054,27 @@ export default {
           else this.$Message.error(resp.message);
         });
     },
-      /**
-       * 确认放行前
-       */
-      beforeRelease(){
-          this.modal5 = true;
-          this.release.backtime = 5;
-          this.setReleaseTimer()
-      },
-      setReleaseTimer(){
-          this.clearReleaseTimer()
-          this.release.timer = setInterval(()=>{
-              this.release.backtime--;
-              if(this.release.backtime===0){
-                  this.clearReleaseTimer()
-              }
-          },1000)
-      },
-      clearReleaseTimer(){
-        clearInterval(this.release.timer)
-        this.release.timer = null
-      },
+    /**
+     * 确认放行前
+     */
+    beforeRelease() {
+      this.modal5 = true;
+      this.release.backtime = 5;
+      this.setReleaseTimer();
+    },
+    setReleaseTimer() {
+      this.clearReleaseTimer();
+      this.release.timer = setInterval(() => {
+        this.release.backtime--;
+        if (this.release.backtime === 0) {
+          this.clearReleaseTimer();
+        }
+      }, 1000);
+    },
+    clearReleaseTimer() {
+      clearInterval(this.release.timer);
+      this.release.timer = null;
+    },
 
     ok1() {
       this.$http
@@ -1095,7 +1144,7 @@ export default {
         .then(response => {
           var resp = response.body;
           if (resp.code == 0) {
-              this.modal5 = false
+            this.modal5 = false;
             this.$Message.success(resp.message);
             //this.sendOrderStatusNotice(5);
             this.getDetail();
@@ -1237,7 +1286,7 @@ export default {
       //let timeLimits = Number(timeLimit) * 60 * 1000
 
       let backTimes = timeLimits - (currentTimes - createTimes);
-      console.log(backTimes);
+      // console.log(backTimes);
       if (backTimes <= 0) {
         //this.getDetail()
         return "";
@@ -1430,7 +1479,7 @@ export default {
   background-size: 100% 100%;
   vertical-align: middle;
 }
-.icons.is-icons--large{
+.icons.is-icons--large {
   height: 28px;
   width: 28px;
 }

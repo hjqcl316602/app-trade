@@ -237,7 +237,7 @@ export default {
       // 客服的名字和id等信息12px
       let messageLocal = localStorage.getItem("app/order/custom/message");
       this.message = messageLocal ? JSON.parse(messageLocal) : {};
-      console.log(this.message);
+      // console.log(this.message);
     },
     /**
      * 时间：2019/9/18 ,
@@ -404,7 +404,7 @@ export default {
      */
 
     sendSocketMessage: function(params) {
-        console.log(this.message)
+      console.log(this.message);
       let message = {};
       message["uidFrom"] = this.msg.myId;
       message["nameFrom"] = this.user.username;

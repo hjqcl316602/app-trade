@@ -643,7 +643,7 @@ export default {
               <span class=" vi-text is-weight--bold">
                 剩余数量|TTM：
               </span>
-              <span class="vi-text  "> {{ item.remainAmount }}  </span>
+              <span class="vi-text  "> {{ item.remainAmount }} </span>
             </div>
             <div class="vi-margin-right is-margin-right--larger">
               <span class=" vi-text is-weight--bold">
@@ -791,10 +791,10 @@ export default {
           >
             <span class="vp-text__type">{{ item["type"] }}</span>
             <div class="vp-payType__content">
-              <span class="vp-text__title"
-                >{{ item["title"] }}
-                <span class="vp-text__title" v-if="item['realName']"
-                  >({{ item["realName"] }})
+              <span class="vp-text__title">
+                {{ item["title"] }}
+                <span class="vp-text__title" v-if="item['realName']">
+                  ({{ item["realName"] }})
                 </span>
               </span>
               <span
@@ -802,15 +802,15 @@ export default {
                 v-if="item['key'] === 'card'"
                 style="font-size:20px"
               >
-                {{ item["value"] }}</span
-              >
+                {{ item["value"] }}
+              </span>
               <span
                 class="vp-text__value"
                 v-if="item['key'] === 'card'"
                 style="font-size:20px"
               >
-                {{ item["value2"] }}</span
-              >
+                {{ item["value2"] }}
+              </span>
 
               <div v-else>
                 <div style="position:relative" v-if="item['value']">
@@ -836,20 +836,23 @@ export default {
                     :backgroundAlpha="payCode.backgroundAlpha"
                   />
                 </div>
-                <div
-                  v-else
-                  :style="{
-                    width: payCode.size + 'px',
-                    height: payCode.size + 'px',
-                    textAlign: 'center'
-                  }"
-                >
-                  <img
-                    :src="item.value2"
-                    alt=""
-                    :style="{ height: '100%', width: 'auto' }"
-                  />
-                </div>
+
+                <template v-else>
+                  <div
+                    v-if="item.value2"
+                    :style="{
+                      width: payCode.size + 'px',
+                      height: payCode.size + 'px',
+                      textAlign: 'center'
+                    }"
+                  >
+                    <img
+                      :src="item.value2"
+                      alt=""
+                      :style="{ height: '100%', width: 'auto' }"
+                    />
+                  </div>
+                </template>
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ export default {
       },
       password: "",
       params: {
-        type: "6",
+        type: "3",
         name: "",
         realName: "",
         url: "",
@@ -41,7 +41,8 @@ export default {
         url: "",
         reUrl: "",
         name: "",
-        mask: "" // 银行简称
+        mask: "", // 银行简称
+        originUrl: ""
       },
       wx: {
         name: "",
@@ -242,6 +243,7 @@ export default {
             realName: this.card.realName,
             url: this.card.url,
             alipayOrMask: this.card.mask,
+            originUrl: this.card.originUrl,
             jyPassword: this.password
           }).then(res => {
             if (res["code"] === 0) {
@@ -805,6 +807,32 @@ export default {
               ></i-input>
             </div>
           </div>
+          <div class="vi-row " style="line-height: 32px">
+            <div
+              class="vi-span is-span--6 vi-text is-align--right vi-padding-right is-padding-right--large"
+            >
+              <span>
+                银行卡ID
+              </span>
+            </div>
+            <div class="vi-span is-span--18">
+              <i-input
+                v-model="card.originUrl"
+                placeholder="请输入您的银行卡ID"
+              ></i-input>
+            </div>
+          </div>
+          <div
+            class="vi-row vi-margin-bottom is-margin-bottom--large"
+            style="line-height: 24px"
+          >
+            <div class="vi-span is-span--6"></div>
+            <div class="vi-span is-span--18">
+              <span class="vi-text is-color--danger">
+                当您需要使用支付宝转卡方式进行收款，您务必需要获取该银行的ID，否则，不需要填写
+              </span>
+            </div>
+          </div>
 
           <div class="vi-row" style="line-height: 32px">
             <div
@@ -1289,7 +1317,8 @@ export default {
               <span>
                 {{ item["realName"] || "--" }} | {{ item["url"] || "--" }} |
                 {{ item["name"] || "--" }} |
-                {{ item["alipayOrMask"] || "--" }}
+                {{ item["alipayOrMask"] || "--" }} |
+                {{ item["originUrl"] || "--" }}
               </span>
             </div>
             <div></div>
