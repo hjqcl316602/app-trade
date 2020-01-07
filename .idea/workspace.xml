@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9692b47a-c8b5-4993-bfb1-767f61636db5" name="Default" comment="添加转账信息">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/otc/Chatline.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/otc/Chatline.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/uc/Account.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/uc/Account.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/uc/OrderRechargeDraw.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/uc/OrderRechargeDraw.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/otc/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/otc/Chat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/uc/MemberCenter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/uc/MemberCenter.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/assets/js/8.61368b2c0dd817a538d7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/uc/OrderRechargeDraw.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25017">
-              <caret line="807" column="38" selection-start-line="807" selection-start-column="38" selection-end-line="807" selection-end-column="38" />
+            <state relative-caret-position="646">
+              <caret line="852" column="22" lean-forward="true" selection-start-line="852" selection-start-column="22" selection-end-line="852" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#span#1;n#div#3;n#div#0;n#div#1;n#div#0;n#template#2;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#1;n#div#4;n#div#0;n#div#1;n#div#0;n#template#2;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -126,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/uc/Account.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="1318" column="44" selection-start-line="1318" selection-start-column="44" selection-end-line="1318" selection-end-column="44" />
+            <state relative-caret-position="314">
+              <caret line="1351" column="30" selection-start-line="1351" selection-start-column="30" selection-end-line="1351" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#template#0;n#div#0;n#Modal#4;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#4;n#template#0;n#div#0;n#Modal#4;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -203,6 +198,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/components/uc/OrderRechargeDraw.vue" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -247,10 +245,10 @@
         <option value="$PROJECT_DIR$/src/pages/customer/customer-order.vue" />
         <option value="$PROJECT_DIR$/src/pages/cms/order-custom.vue" />
         <option value="$PROJECT_DIR$/src/pages/uc/MemberCenter.vue" />
-        <option value="$PROJECT_DIR$/src/components/uc/OrderRechargeDraw.vue" />
         <option value="$PROJECT_DIR$/src/components/otc/Chatline.vue" />
         <option value="$PROJECT_DIR$/src/pages/otc/Chat.vue" />
         <option value="$PROJECT_DIR$/src/components/uc/Account.vue" />
+        <option value="$PROJECT_DIR$/src/components/uc/OrderRechargeDraw.vue" />
       </list>
     </option>
   </component>
@@ -273,13 +271,27 @@
       <path value="$PROJECT_DIR$/package/ui/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-56" />
     <option name="y" value="-17" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectId" id="1QdYYFYgTeVHWx2H5LD0fNJLQpU" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="添加" />
   </component>
@@ -288,6 +300,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -355,7 +368,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -517,6 +529,9 @@
       <workItem from="1577759006733" duration="1880000" />
       <workItem from="1578043728229" duration="1591000" />
       <workItem from="1578049624070" duration="593000" />
+      <workItem from="1578232153971" duration="727000" />
+      <workItem from="1578361012683" duration="530000" />
+      <workItem from="1578364804007" duration="260000" />
     </task>
     <task id="LOCAL-00001" summary="添加转账信息">
       <created>1576574055087</created>
@@ -529,13 +544,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287902000" />
+    <option name="totallyTimeSpent" value="289419000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1536643" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2118019" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -549,7 +564,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32986256" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.27712724" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.19890796" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -847,31 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/uc/OrderRechargeDraw.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25017">
-          <caret line="807" column="38" selection-start-line="807" selection-start-column="38" selection-end-line="807" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#span#1;n#div#3;n#div#0;n#div#1;n#div#0;n#template#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#4;n#div#0;n#div#1;n#div#0;n#template#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#template#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#template#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#1;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#2;n#div#1;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#3;n#div#1;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#4;n#div#1;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#P#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/otc/Chat.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2418">
@@ -946,11 +936,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/uc/Account.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="1318" column="44" selection-start-line="1318" selection-start-column="44" selection-end-line="1318" selection-end-column="44" />
+        <state relative-caret-position="314">
+          <caret line="1351" column="30" selection-start-line="1351" selection-start-column="30" selection-end-line="1351" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#div#3;n#template#0;n#div#0;n#Modal#4;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#template#0;n#div#0;n#Modal#4;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/uc/OrderRechargeDraw.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="852" column="22" lean-forward="true" selection-start-line="852" selection-start-column="22" selection-end-line="852" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#span#1;n#div#3;n#div#0;n#div#1;n#div#0;n#template#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#4;n#div#0;n#div#1;n#div#0;n#template#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#template#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#template#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#1;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#div#1;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#3;n#div#1;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#4;n#div#1;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#P#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#Modal#2;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

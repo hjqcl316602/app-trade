@@ -628,7 +628,7 @@ export default {
                 类型：
               </span>
               <span class="vi-text  ">
-                {{ item.advertiseType === 1 ? "在线出售" : "在线够买" }}
+                {{ item.advertiseType === 1 ? "在线出售" : "在线购买" }}
               </span>
             </div>
             <div class="vi-margin-right is-margin-right--larger">
