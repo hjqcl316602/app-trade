@@ -1,12 +1,3 @@
-/*
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-01-22 13:45:52
- * @LastEditTime: 2019-09-05 12:07:55
- * @LastEditors: Please set LastEditors
- */
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
 import VueClipboard from "vue-clipboard2";
 import routes from "./config/routes2.js";
@@ -20,12 +11,10 @@ import util from "./assets/js/util.js"; //乘除方法
 import iView from "iview";
 import "iview/dist/styles/iview.css";
 import "./assets/css/index.less"; // store-css-basis，以及一些ivew的重置和添加
-import './style/main.less';
-import './style/app.less';
-
+import "./style/main.less";
+import "./style/app.less";
 
 import App from "./App"; // 必须要放在css的引用之后，否则页面样式有些不生效
-
 
 /**********************************************配置***************************************************/
 import "./config/mixins.methods";
@@ -98,6 +87,5 @@ new Vue({
   i18n,
   store,
   template: "<App/>",
-  components: { App },
-
+  components: { App }
 });
